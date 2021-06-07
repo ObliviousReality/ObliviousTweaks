@@ -1,0 +1,14 @@
+{
+	"item.oblivioustweaks.example_item": "Example Item",
+	"block.oblivioustweaks.example_block": "Example Block",
+	"block.oblivioustweaks.shelf": "Shelf",
+	"item.oblivioustweaks.spear": "Spear",
+	"item.oblivioustweaks.silver_sword": "Silver Sword",
+	"item.oblivioustweaks.gilded_ingot": "Gilded Ingot",
+	"item.oblivioustweaks.gilded_helmet": "Gilded Helmet",
+	"item.oblivioustweaks.gilded_chestplate": "Gilded Chestplate",
+	"item.oblivioustweaks.gilded_leggings": "Gilded Leggings",
+	"item.oblivioustweaks.gilded_boots": "Gilded Boots",
+	
+	"itemGroup.oblivioustweaks": "Oblivious Tweaks Items"
+}

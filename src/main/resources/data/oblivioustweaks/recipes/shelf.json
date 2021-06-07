@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"PPP",
+		"   ",
+		"PPP"
+	],
+	"key": {
+		"P": {
+			"tag": "minecraft:planks"
+		}
+	},
+	"result": {
+		"item": "oblivioustweaks:shelf",
+		"count": 1
+	}
+}

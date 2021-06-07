@@ -1,0 +1,5 @@
+{
+	"variants" : {
+		"": { "model": "oblivioustweaks:block/example_block" }
+	}
+}
