@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"G G",
+		"G G"
+	],
+	"key": {
+		"G": {
+			"item": "oblivioustweaks:gilded_ingot"
+		}
+	},
+	"result": {
+		"item": "oblivioustweaks:gilded_boots",
+		"count": 1
+	}
+}

@@ -10,11 +10,22 @@ import net.minecraft.item.crafting.Ingredient;
 
 public enum CustomToolMaterial implements IItemTier {
 
-	// EXAMPLE_TOOL(harvestLevel, maxUses, efficiency(F), attackDamage,
+	// Efficiencies: Hand = 1, Wood = 2, Stone = 4, Iron = 6, Diamond = 8,
+	// Netherite = 9, Gold = 12.
+
+	// All swords are 1.5
+
+	// EXAMPLE_TOOL(harvestLevel, maxUses, efficiency(F), attackDamage - 1,
 	// enchantability, () -> Ingredient.of(ItemInit.EXAMPLE_ITEM.get())),
 
-	SPEAR(1, 125, 0.5f, 5f, 17, () -> Ingredient.of(Items.IRON_INGOT)),
-	SILVER_SWORD(1, 350, 12f, 5, 17, () -> Ingredient.of(Items.IRON_INGOT));
+	SPEAR(1, 125, 0.5f, 1.5f, 17, () -> Ingredient.of(Items.IRON_INGOT)),
+	SILVER_SWORD(1, 350, 1.5f, 5, 14, () -> Ingredient.of(Items.BARRIER)),
+	GILDED_SWORD(1, 350, 1.5f, 5f, 17, () -> Ingredient.of(ItemInit.GILDED_INGOT.get())),
+	GILDED_PICKAXE(1, 350, 7f, 3.5f, 17, () -> Ingredient.of(ItemInit.GILDED_INGOT.get())),
+	GILDED_AXE(1, 350, 7f, 8f, 17, () -> Ingredient.of(ItemInit.GILDED_INGOT.get())),
+	GILDED_SHOVEL(1, 350, 7f, 3f, 17, () -> Ingredient.of(ItemInit.GILDED_INGOT.get())),
+	GILDED_HOE(1, 350, 7f, 0f, 17, () -> Ingredient.of(ItemInit.GILDED_INGOT.get())),
+	IRON_DAGGER(1, 100, 1.5f, 2, 14, () -> Ingredient.of(Items.IRON_INGOT));
 
 	private final int harvestLevel;
 	private final int maxUses;
