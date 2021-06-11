@@ -1,9 +1,14 @@
 package com.tsaroblivious.oblivioustweaks.core.items;
 
+import java.util.Map;
+
 import com.tsaroblivious.oblivioustweaks.ObliviousTweaks;
 import com.tsaroblivious.oblivioustweaks.common.material.CustomToolMaterial;
 import com.tsaroblivious.oblivioustweaks.core.itemgroup.ObliviousTweaksItemGroup;
 
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.monster.WitherSkeletonEntity;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -25,11 +30,22 @@ public class SilverSword extends SwordItem {
 		item.hurtAndBreak(1, entityB, (p_220045_0_) -> {
 			p_220045_0_.broadcastBreakEvent(EquipmentSlotType.MAINHAND);
 		});
-		ObliviousTweaks.LOGGER.debug("Before " + entityA.getHealth());
 		if (entityA instanceof WitherSkeletonEntity) {
 			entityA.hurt(DamageSource.mobAttack(entityB), 8);
+			ObliviousTweaks.LOGGER.debug("silver sword attack");
+		} else {
+			Map<Enchantment, Integer> enchants = EnchantmentHelper.getEnchantments(item);
+			if (enchants.get(Enchantments.UNBREAKING) != null) {
+				float chance = (100f / (float) enchants.get(Enchantments.UNBREAKING) + 1f) / 100f;
+				ObliviousTweaks.LOGGER.debug(chance);
+				ObliviousTweaks.LOGGER.debug(enchants.get(Enchantments.UNBREAKING));
+				if (Math.random() > chance) {
+					item.setDamageValue(item.getDamageValue() + 1);
+				}
+			} else {
+				item.setDamageValue(item.getDamageValue() + 1);
+			}
 		}
-		ObliviousTweaks.LOGGER.debug("After " + entityA.getHealth());
 		return true;
 	}
 }

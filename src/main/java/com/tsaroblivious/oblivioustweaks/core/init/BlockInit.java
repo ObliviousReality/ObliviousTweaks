@@ -20,6 +20,6 @@ public class BlockInit {
 	public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("example_block",
 			() -> new Block(AbstractBlock.Properties.of(Material.METAL, MaterialColor.COLOR_GRAY).strength(5f, 6f)
 					.harvestTool(ToolType.PICKAXE).harvestLevel(2).sound(SoundType.METAL)));
-	
+
 	public static final RegistryObject<Block> SHELF = BLOCKS.register("shelf", () -> new Shelf());
 }

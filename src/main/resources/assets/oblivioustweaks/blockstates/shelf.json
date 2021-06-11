@@ -1,5 +1,8 @@
 {
 	"variants" : {
-		"": { "model": "oblivioustweaks:block/shelf" }
+		"books=0": { "model": "oblivioustweaks:block/shelf" },
+		"books=1": { "model": "oblivioustweaks:block/shelf2" },
+		"books=2": { "model": "oblivioustweaks:block/shelf3" },
+		"books=3": { "model": "oblivioustweaks:block/shelf4" }
 	}
 }

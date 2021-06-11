@@ -2,7 +2,6 @@ package com.tsaroblivious.oblivioustweaks.core.items;
 
 import com.tsaroblivious.oblivioustweaks.core.itemgroup.ObliviousTweaksItemGroup;
 
-import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.Item;
 

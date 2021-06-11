@@ -4,7 +4,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.tsaroblivious.oblivioustweaks.core.init.BlockInit;
+import com.tsaroblivious.oblivioustweaks.core.init.EntityInit;
 import com.tsaroblivious.oblivioustweaks.core.init.ItemInit;
+import com.tsaroblivious.oblivioustweaks.core.init.TileEntityInit;
 import com.tsaroblivious.oblivioustweaks.core.itemgroup.ObliviousTweaksItemGroup;
 
 import net.minecraft.item.BlockItem;
@@ -29,8 +31,10 @@ public class ObliviousTweaks {
 
 	public ObliviousTweaks() {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+		EntityInit.ENTITY_TYPES.register(bus);
 		ItemInit.ITEMS.register(bus);
 		BlockInit.BLOCKS.register(bus);
+		TileEntityInit.TILE_ENTITY_TYPE.register(bus);
 		MinecraftForge.EVENT_BUS.register(this);
 		final ClientSideOnlyModEventRegistrar csomer = new ClientSideOnlyModEventRegistrar(bus);
 		DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> csomer::registerClientOnlyEvents);

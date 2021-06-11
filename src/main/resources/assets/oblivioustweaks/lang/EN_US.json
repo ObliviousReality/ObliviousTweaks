@@ -17,5 +17,7 @@
 	"item.oblivioustweaks.gilded_hoe": "Gilded Hoe",
 	"item.oblivioustweaks.iron_dagger": "Iron Dagger",
 	
-	"itemGroup.oblivioustweaks": "Oblivious Tweaks Items"
+	"itemGroup.oblivioustweaks": "Oblivious Tweaks Items",
+	
+	"entity.oblivioustweaks.vampire": "Vampire"
 }
