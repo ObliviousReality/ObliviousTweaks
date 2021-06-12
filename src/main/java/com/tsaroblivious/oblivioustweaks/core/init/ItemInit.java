@@ -26,9 +26,6 @@ public class ItemInit {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS,
 			ObliviousTweaks.MOD_ID);
 
-	public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item",
-			() -> new Item(new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
-
 	public static final RegistryObject<Item> GILDED_INGOT = ITEMS.register("gilded_ingot",
 			() -> new Item(new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
 
@@ -91,6 +88,5 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> CLOVER_FLOWER = ITEMS.register("clover_flower",
 			() -> new Item(new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
-	
 
 }

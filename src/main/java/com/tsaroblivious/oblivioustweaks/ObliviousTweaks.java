@@ -7,6 +7,7 @@ import com.tsaroblivious.oblivioustweaks.core.blocks.CloverCrop;
 import com.tsaroblivious.oblivioustweaks.core.init.BlockInit;
 import com.tsaroblivious.oblivioustweaks.core.init.EntityInit;
 import com.tsaroblivious.oblivioustweaks.core.init.ItemInit;
+import com.tsaroblivious.oblivioustweaks.core.init.LootInit;
 import com.tsaroblivious.oblivioustweaks.core.init.TileEntityInit;
 import com.tsaroblivious.oblivioustweaks.core.itemgroup.ObliviousTweaksItemGroup;
 import com.tsaroblivious.oblivioustweaks.core.items.EffectsInit;
@@ -43,6 +44,7 @@ public class ObliviousTweaks {
 		BlockInit.BLOCKS.register(bus);
 		ItemInit.ITEMS.register(bus);
 		TileEntityInit.TILE_ENTITY_TYPE.register(bus);
+		LootInit.LOOT.register(bus);
 		MinecraftForge.EVENT_BUS.register(this);
 		final ClientSideOnlyModEventRegistrar csomer = new ClientSideOnlyModEventRegistrar(bus);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);

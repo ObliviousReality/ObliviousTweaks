@@ -2,6 +2,8 @@
 	"item.oblivioustweaks.example_item": "Example Item",
 	"block.oblivioustweaks.example_block": "Example Block",
 	"block.oblivioustweaks.shelf": "Shelf",
+	"block.oblivioustweaks.clover_crop": "Clover Seeds",
+	"block.oblivioustweaks.gilded_block": "Gilded Block",
 	"item.oblivioustweaks.spear": "Spear",
 	"item.oblivioustweaks.silver_sword": "Silver Sword",
 	"item.oblivioustweaks.gilded_ingot": "Gilded Ingot",
@@ -19,7 +21,8 @@
 	"item.oblivioustweaks.vampire_tooth": "Vampire Tooth",
 	"item.oblivioustweaks.curepotion": "Potion of Cure Disease",
 	"item.oblivioustweaks.fungus_bowl": "Fungus Bowl",
-	"block.oblivioustweaks.clover_crop": "Clover Seeds",
+	"item.oblivioustweaks.clover_leaf": "Clover Leaf",
+	"item.oblivioustweaks.clover_flower": "Clover Flower",
 	
 	"itemGroup.oblivioustweaks": "Oblivious Tweaks Items",
 	

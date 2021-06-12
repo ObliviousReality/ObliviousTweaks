@@ -8,7 +8,6 @@ import com.tsaroblivious.oblivioustweaks.core.init.BlockInit;
 import com.tsaroblivious.oblivioustweaks.core.init.ItemInit;
 import com.tsaroblivious.oblivioustweaks.core.items.EffectsInit;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.Minecraft;
@@ -186,26 +185,15 @@ public class PlayerEvents {
 
 	@SubscribeEvent
 	public static void cropEvent(BlockEvent.CropGrowEvent.Pre event) {
-		double randVal = Math.random();
-		if (randVal > 0.5) {
-			event.setResult(Result.DENY);
+		if (event.getState().getBlock() == BlockInit.CLOVER_CROP.get()) {
+			double randVal = Math.random();
+			if (randVal > 0.5) {
+				event.setResult(Result.DENY);
+			} else {
+				event.setResult(Result.DEFAULT);
+			}
 		} else {
 			event.setResult(Result.DEFAULT);
 		}
 	}
-
-//	@SubscribeEvent
-//	public static void placeExample(BlockEvent.EntityPlaceEvent event) {
-//		if (!event.getWorld().isClientSide()) {
-//			Block placedBlock = event.getPlacedBlock().getBlock();
-//			if (placedBlock.is(BlockInit.EXAMPLE_BLOCK.get())) {
-//				Block targetBlock = event.getPlacedAgainst().getBlock();
-//				if (!targetBlock.is(Blocks.DIAMOND_BLOCK)) {
-//					event.setCanceled(true);
-//				} else {
-//					event.setCanceled(false);
-//				}
-//			} // NOT IDEAL
-//		}
-//	}
 }
