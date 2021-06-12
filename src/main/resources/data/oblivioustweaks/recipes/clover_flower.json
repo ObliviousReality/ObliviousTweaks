@@ -1,0 +1,20 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" G ",
+		"GCG",
+		" G "
+	],
+	"key": {
+		"C": {
+			"item": "oblivioustweaks:gilded_ingot"
+		},
+		"G": {
+			"item": "oblivioustweaks:clover_leaf"
+		}
+	},
+	"result": {
+		"item": "oblivioustweaks:clover_flower",
+		"count": 1
+	}
+}

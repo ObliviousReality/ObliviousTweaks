@@ -1,0 +1,23 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"DGD",
+		"GSG",
+		"DGD"
+	],
+	"key": {
+		"G": {
+			"item": "oblivioustweaks:gilded_block"
+		},
+		"D": {
+			"item": "minecraft:diamond"
+		},
+		"S": {
+			"item": "minecraft:wheat_seeds"
+		}
+	},
+	"result": {
+		"item": "oblivioustweaks:clover_seeds",
+		"count": 1
+	}
+}

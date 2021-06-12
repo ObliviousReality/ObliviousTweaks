@@ -3,6 +3,7 @@ package com.tsaroblivious.oblivioustweaks.core.items;
 import java.util.Map;
 
 import com.tsaroblivious.oblivioustweaks.ObliviousTweaks;
+import com.tsaroblivious.oblivioustweaks.common.entity.Vampire;
 import com.tsaroblivious.oblivioustweaks.common.material.CustomToolMaterial;
 import com.tsaroblivious.oblivioustweaks.core.itemgroup.ObliviousTweaksItemGroup;
 
@@ -30,7 +31,8 @@ public class SilverSword extends SwordItem {
 		item.hurtAndBreak(1, entityB, (p_220045_0_) -> {
 			p_220045_0_.broadcastBreakEvent(EquipmentSlotType.MAINHAND);
 		});
-		if (entityA instanceof WitherSkeletonEntity) {
+		if (entityA instanceof WitherSkeletonEntity || entityA instanceof Vampire
+				|| entityA.hasEffect(EffectsInit.vampirism_effect)) {
 			entityA.hurt(DamageSource.mobAttack(entityB), 8);
 			ObliviousTweaks.LOGGER.debug("silver sword attack");
 		} else {

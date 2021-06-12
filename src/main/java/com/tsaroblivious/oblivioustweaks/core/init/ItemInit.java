@@ -12,6 +12,7 @@ import com.tsaroblivious.oblivioustweaks.core.items.Spear;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.AxeItem;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.HoeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.PickaxeItem;
@@ -74,5 +75,22 @@ public class ItemInit {
 					new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
 
 	public static final RegistryObject<Item> IRON_DAGGER = ITEMS.register("iron_dagger", () -> new IronDagger());
+
+	public static final RegistryObject<Item> VAMPIRE_TOOTH = ITEMS.register("vampire_tooth",
+			() -> new Item(new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
+
+	public static final RegistryObject<Item> FUNGUS_BOWL = ITEMS.register("fungus_bowl",
+			() -> new Item(new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
+
+	public static final RegistryObject<Item> CLOVER_SEEDS = ITEMS.register("clover_seeds",
+			() -> new BlockItem(BlockInit.CLOVER_CROP.get(),
+					new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
+
+	public static final RegistryObject<Item> CLOVER_LEAF = ITEMS.register("clover_leaf",
+			() -> new Item(new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
+
+	public static final RegistryObject<Item> CLOVER_FLOWER = ITEMS.register("clover_flower",
+			() -> new Item(new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
+	
 
 }

@@ -16,8 +16,30 @@
 	"item.oblivioustweaks.gilded_shovel": "Gilded Shovel",
 	"item.oblivioustweaks.gilded_hoe": "Gilded Hoe",
 	"item.oblivioustweaks.iron_dagger": "Iron Dagger",
+	"item.oblivioustweaks.vampire_tooth": "Vampire Tooth",
+	"item.oblivioustweaks.curepotion": "Potion of Cure Disease",
+	"item.oblivioustweaks.fungus_bowl": "Fungus Bowl",
+	"block.oblivioustweaks.clover_crop": "Clover Seeds",
 	
 	"itemGroup.oblivioustweaks": "Oblivious Tweaks Items",
+	
+	"effect.oblivioustweaks.preventdisease": "Prevent Disease",
+	"item.minecraft.potion.effect.preventdisease": "Potion of Prevent Disease",
+	"item.minecraft.splash_potion.effect.preventdisease": "Splash Potion of Prevent Disease",
+	"item.minecraft.lingering_potion.effect.preventdisease": "Lingering Potion of Prevent Disease",
+	"item.minecraft.tipped_arrow.effect.preventdisease": "Arrow of Prevent Disease",
+	
+	"effect.oblivioustweaks.vampirism": "Vampirism",
+	"item.minecraft.potion.effect.vampirism": "Potion of Vampirism",
+	"item.minecraft.splash_potion.effect.vampirism": "Splash Potion of Vampirism",
+	"item.minecraft.lingering_potion.effect.vampirism": "Lingering Potion of Vampirism",
+	"item.minecraft.tipped_arrow.effect.vampirism": "Arrow of Vampirism",
+	
+	"effect.oblivioustweaks.curedisease": "Cure Disease",
+	"item.minecraft.potion.effect.curedisease": "Potion of Cure Disease",
+	"item.minecraft.splash_potion.effect.curedisease": "Splash Potion of Cure Disease",
+	"item.minecraft.lingering_potion.effect.curedisease": "Lingering Potion of Cure Disease",
+	"item.minecraft.tipped_arrow.effect.curedisease": "Arrow of Cure Disease",
 	
 	"entity.oblivioustweaks.vampire": "Vampire"
 }
