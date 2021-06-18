@@ -5,6 +5,7 @@ import java.util.Map;
 import com.tsaroblivious.oblivioustweaks.ObliviousTweaks;
 import com.tsaroblivious.oblivioustweaks.common.entity.Vampire;
 import com.tsaroblivious.oblivioustweaks.common.material.CustomToolMaterial;
+import com.tsaroblivious.oblivioustweaks.core.init.EffectsInit;
 import com.tsaroblivious.oblivioustweaks.core.itemgroup.ObliviousTweaksItemGroup;
 
 import net.minecraft.enchantment.Enchantment;

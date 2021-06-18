@@ -5,8 +5,8 @@ import java.util.Map;
 import com.tsaroblivious.oblivioustweaks.ObliviousTweaks;
 import com.tsaroblivious.oblivioustweaks.core.blocks.Shelf;
 import com.tsaroblivious.oblivioustweaks.core.init.BlockInit;
+import com.tsaroblivious.oblivioustweaks.core.init.EffectsInit;
 import com.tsaroblivious.oblivioustweaks.core.init.ItemInit;
-import com.tsaroblivious.oblivioustweaks.core.items.EffectsInit;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;

@@ -1,7 +1,7 @@
 package com.tsaroblivious.oblivioustweaks.common.entity;
 
 import com.tsaroblivious.oblivioustweaks.ObliviousTweaks;
-import com.tsaroblivious.oblivioustweaks.core.items.EffectsInit;
+import com.tsaroblivious.oblivioustweaks.core.init.EffectsInit;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;

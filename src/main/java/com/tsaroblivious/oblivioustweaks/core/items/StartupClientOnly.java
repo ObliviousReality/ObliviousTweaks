@@ -1,6 +1,7 @@
 package com.tsaroblivious.oblivioustweaks.core.items;
 
 import com.tsaroblivious.oblivioustweaks.ObliviousTweaks;
+import com.tsaroblivious.oblivioustweaks.client.entity.ShotRenderer;
 import com.tsaroblivious.oblivioustweaks.client.entity.VampireRenderer;
 import com.tsaroblivious.oblivioustweaks.common.entity.Vampire;
 import com.tsaroblivious.oblivioustweaks.core.init.BlockInit;
@@ -29,6 +30,8 @@ public class StartupClientOnly {
 		});
 		RenderingRegistry.registerEntityRenderingHandler(EntityInit.VAMPIRE.get(), VampireRenderer::new);
 		RenderTypeLookup.setRenderLayer(BlockInit.CLOVER_CROP.get(), RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockInit.TEA_CROP.get(), RenderType.cutout());
+		RenderingRegistry.registerEntityRenderingHandler(EntityInit.SHOT_ENTITY.get(), ShotRenderer::new);
 	}
 
 	public static void propertyOverride() {

@@ -1,9 +1,7 @@
-package com.tsaroblivious.oblivioustweaks.core.items;
+package com.tsaroblivious.oblivioustweaks.core.init;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
-import com.tsaroblivious.oblivioustweaks.core.init.ItemInit;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;

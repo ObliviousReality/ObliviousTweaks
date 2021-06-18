@@ -11,21 +11,20 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 
-public class CloverCrop extends CropsBlock {
-
+public class TeaCrop extends CropsBlock {
 	private static final VoxelShape[] SHAPES = new VoxelShape[] { Block.box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D),
 			Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 6.0D, 16.0D),
 			Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D),
 			Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D),
 			Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D) };
 
-	public CloverCrop(Properties p_i48421_1_) {
+	public TeaCrop(Properties p_i48421_1_) {
 		super(p_i48421_1_);
 	}
 
 	@Override
 	protected IItemProvider getBaseSeedId() {
-		return ItemInit.CLOVER_SEEDS.get();
+		return ItemInit.TEA_SEEDS.get();
 	}
 
 	@Override
@@ -36,7 +35,6 @@ public class CloverCrop extends CropsBlock {
 	@Override
 	public boolean isValidBonemealTarget(IBlockReader p_176473_1_, BlockPos p_176473_2_, BlockState p_176473_3_,
 			boolean p_176473_4_) {
-		return false;
+		return true;
 	}
-
 }

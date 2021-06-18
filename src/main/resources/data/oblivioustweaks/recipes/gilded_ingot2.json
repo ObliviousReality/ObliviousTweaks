@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "oblivioustweaks:gilded_block"
+		}
+	],
+	"result": {
+		"item": "oblivioustweaks:gilded_ingot",
+		"count": 1
+	}
+}

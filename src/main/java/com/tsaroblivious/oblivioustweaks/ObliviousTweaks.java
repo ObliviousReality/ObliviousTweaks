@@ -4,13 +4,14 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.tsaroblivious.oblivioustweaks.core.blocks.CloverCrop;
+import com.tsaroblivious.oblivioustweaks.core.blocks.TeaCrop;
 import com.tsaroblivious.oblivioustweaks.core.init.BlockInit;
+import com.tsaroblivious.oblivioustweaks.core.init.EffectsInit;
 import com.tsaroblivious.oblivioustweaks.core.init.EntityInit;
 import com.tsaroblivious.oblivioustweaks.core.init.ItemInit;
 import com.tsaroblivious.oblivioustweaks.core.init.LootInit;
 import com.tsaroblivious.oblivioustweaks.core.init.TileEntityInit;
 import com.tsaroblivious.oblivioustweaks.core.itemgroup.ObliviousTweaksItemGroup;
-import com.tsaroblivious.oblivioustweaks.core.items.EffectsInit;
 
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -58,7 +59,7 @@ public class ObliviousTweaks {
 	@SubscribeEvent
 	public static void onRegisterItems(final RegistryEvent.Register<Item> event) {
 		BlockInit.BLOCKS.getEntries().stream().filter(block -> !(block.get() instanceof CloverCrop))
-				.map(RegistryObject::get).forEach(block -> {
+				.filter(block -> !(block.get() instanceof TeaCrop)).map(RegistryObject::get).forEach(block -> {
 					event.getRegistry().register(
 							new BlockItem(block, new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS))
 									.setRegistryName(block.getRegistryName()));

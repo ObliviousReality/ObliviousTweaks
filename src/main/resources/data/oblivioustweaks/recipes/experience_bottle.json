@@ -1,3 +1,21 @@
 {
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"GCG",
+		" G "
+	],
+	"key": {
+		"G": {
+			"item": "minecraft:glass"
+		},
+		"C": {
+			"item": "oblivioustweaks:clover_flower"
+		}
+	},
+	"result": {
+		"item": "minecraft:experience_bottle",
+		"count": 3
+	}
+}{
 
 }
