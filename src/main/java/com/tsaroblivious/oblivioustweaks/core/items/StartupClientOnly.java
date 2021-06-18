@@ -31,6 +31,7 @@ public class StartupClientOnly {
 		RenderingRegistry.registerEntityRenderingHandler(EntityInit.VAMPIRE.get(), VampireRenderer::new);
 		RenderTypeLookup.setRenderLayer(BlockInit.CLOVER_CROP.get(), RenderType.cutout());
 		RenderTypeLookup.setRenderLayer(BlockInit.TEA_CROP.get(), RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(BlockInit.KETTLE.get(), RenderType.cutout());
 		RenderingRegistry.registerEntityRenderingHandler(EntityInit.SHOT_ENTITY.get(), ShotRenderer::new);
 	}
 

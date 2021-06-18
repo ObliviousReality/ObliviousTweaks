@@ -2,6 +2,7 @@ package com.tsaroblivious.oblivioustweaks.core.init;
 
 import com.tsaroblivious.oblivioustweaks.ObliviousTweaks;
 import com.tsaroblivious.oblivioustweaks.core.blocks.CloverCrop;
+import com.tsaroblivious.oblivioustweaks.core.blocks.Kettle;
 import com.tsaroblivious.oblivioustweaks.core.blocks.Shelf;
 import com.tsaroblivious.oblivioustweaks.core.blocks.TeaCrop;
 
@@ -32,5 +33,8 @@ public class BlockInit {
 	public static final RegistryObject<Block> TEA_CROP = BLOCKS.register("tea_crop",
 			() -> new TeaCrop(Block.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).strength(0).noCollission()
 					.randomTicks().sound(SoundType.CROP)));
+
+	public static final RegistryObject<Block> KETTLE = BLOCKS.register("kettle",
+			() -> new Kettle());
 
 }

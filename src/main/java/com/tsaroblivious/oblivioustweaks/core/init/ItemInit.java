@@ -4,6 +4,7 @@ import com.tsaroblivious.oblivioustweaks.ObliviousTweaks;
 import com.tsaroblivious.oblivioustweaks.common.material.CustomArmourMaterial;
 import com.tsaroblivious.oblivioustweaks.common.material.CustomToolMaterial;
 import com.tsaroblivious.oblivioustweaks.core.itemgroup.ObliviousTweaksItemGroup;
+import com.tsaroblivious.oblivioustweaks.core.items.HotWaterBottle;
 import com.tsaroblivious.oblivioustweaks.core.items.IronDagger;
 import com.tsaroblivious.oblivioustweaks.core.items.Pistol;
 import com.tsaroblivious.oblivioustweaks.core.items.PistolShot;
@@ -95,8 +96,14 @@ public class ItemInit {
 	public static final RegistryObject<Item> TEA_SEEDS = ITEMS.register("tea_seeds",
 			() -> new BlockItem(BlockInit.TEA_CROP.get(),
 					new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
-	
+
 	public static final RegistryObject<Item> TEA_LEAF = ITEMS.register("tea_leaf",
 			() -> new Item(new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
+
+	public static final RegistryObject<Item> HOT_WATER_BUCKET = ITEMS.register("hot_water_bucket",
+			() -> new Item(new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
+
+	public static final RegistryObject<Item> HOT_WATER_BOTTLE = ITEMS.register("hot_water_bottle",
+			() -> new HotWaterBottle());
 
 }
