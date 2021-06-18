@@ -1,6 +1,6 @@
 {
 	"parent": "block/crop",
 	"textures": {
-		"crop": "oblivioustweaks:blocks/tea_crop1"
+		"crop": "oblivioustweaks:blocks/tea_crop4"
 	}
 }
