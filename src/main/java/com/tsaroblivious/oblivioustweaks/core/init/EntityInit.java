@@ -2,6 +2,7 @@ package com.tsaroblivious.oblivioustweaks.core.init;
 
 import com.tsaroblivious.oblivioustweaks.ObliviousTweaks;
 import com.tsaroblivious.oblivioustweaks.common.entity.Vampire;
+import com.tsaroblivious.oblivioustweaks.common.entity.VampireHunter;
 import com.tsaroblivious.oblivioustweaks.core.entities.ShotEntity;
 
 import net.minecraft.entity.EntityClassification;
@@ -23,5 +24,10 @@ public class EntityInit {
 	public static final RegistryObject<EntityType<ShotEntity>> SHOT_ENTITY = ENTITY_TYPES.register("shot_entity",
 			() -> EntityType.Builder.<ShotEntity>of(ShotEntity::new, EntityClassification.MISC).sized(0.1f, 0.1f)
 					.build(new ResourceLocation(ObliviousTweaks.MOD_ID, "shot_entity").toString()));
+
+	public static final RegistryObject<EntityType<VampireHunter>> VAMPIRE_HUNTER = ENTITY_TYPES.register(
+			"vampire_hunter",
+			() -> EntityType.Builder.of(VampireHunter::new, EntityClassification.MONSTER).sized(1.0f, 2.0f)
+					.build(new ResourceLocation(ObliviousTweaks.MOD_ID, "vampire_hunter").toString()));
 
 }

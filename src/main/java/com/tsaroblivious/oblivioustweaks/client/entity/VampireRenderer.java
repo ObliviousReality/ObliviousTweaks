@@ -15,7 +15,6 @@ public class VampireRenderer extends MobRenderer<Vampire, VampireModel<Vampire>>
 
 	public VampireRenderer(EntityRendererManager manager) {
 		super(manager, new VampireModel<>(), 0.7f);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

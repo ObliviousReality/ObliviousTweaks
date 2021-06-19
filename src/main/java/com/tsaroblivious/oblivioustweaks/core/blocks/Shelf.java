@@ -108,4 +108,5 @@ public class Shelf extends Block {
 	public boolean isFlammable(BlockState state, IBlockReader world, BlockPos pos, Direction face) {
 		return true;
 	}
+	
 }

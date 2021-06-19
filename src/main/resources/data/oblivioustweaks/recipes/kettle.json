@@ -1,0 +1,23 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"ISI",
+		"I I",
+		"IBI"
+	],
+	"key": {
+		"S": {
+			"item": "minecraft:stick"
+		},
+		"I": {
+			"item": "minecraft:iron_ingot"
+		},
+		"B": {
+			"item": "minecraft:iron_block"
+		}
+	},
+	"result": {
+		"item": "oblivioustweaks:kettle",
+		"count": 1
+	}
+}

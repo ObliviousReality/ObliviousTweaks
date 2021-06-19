@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"B B",
+		" Q "
+	],
+	"key": {
+		"B": {
+			"item": "minecraft:brick"
+		},
+		"Q": {
+			"item": "minecraft:quartz"
+		}
+	},
+	"result": {
+		"item": "oblivioustweaks:mug",
+		"count": 3
+	}
+}

@@ -15,7 +15,7 @@ import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
-import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -25,22 +25,22 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
 
-public class Vampire extends MonsterEntity {
+public class VampireHunter extends ZombieEntity {
 
 	private final MeleeAttackGoal meleeGoal = new MeleeAttackGoal(this, 1.2D, false) {
 		public void stop() {
 			super.stop();
-			Vampire.this.setAggressive(false);
+			VampireHunter.this.setAggressive(false);
 		}
 
 		public void start() {
 			super.start();
-			Vampire.this.setAggressive(true);
+			VampireHunter.this.setAggressive(true);
 		}
 	};
 
-	public Vampire(EntityType<? extends MonsterEntity> p_i48576_1_, World p_i48576_2_) {
-		super(p_i48576_1_, p_i48576_2_);
+	public VampireHunter(EntityType<? extends ZombieEntity> p_i48549_1_, World p_i48549_2_) {
+		super(p_i48549_1_, p_i48549_2_);
 		addGoal();
 	}
 
@@ -60,7 +60,8 @@ public class Vampire extends MonsterEntity {
 		this.goalSelector.addGoal(4, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
 		this.goalSelector.addGoal(5, new LookAtGoal(this, PlayerEntity.class, 8.0f));
 		this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
-		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
+		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Vampire.class, true));
+		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
 	}
 
 	@Override
@@ -116,4 +117,5 @@ public class Vampire extends MonsterEntity {
 		}
 		super.aiStep();
 	}
+
 }

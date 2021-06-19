@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"TTT",
+		"TTT",
+		"TTT"
+	],
+	"key": {
+		"T": {
+			"item": "oblivioustweaks:tea_leaf"
+		}
+	},
+	"result": {
+		"item": "oblivioustweaks:tea_crate",
+		"count": 1
+	}
+}

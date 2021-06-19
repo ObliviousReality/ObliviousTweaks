@@ -2,11 +2,11 @@
 	"type": "minecraft:crafting_shapeless",
 	"ingredients": [
 		{
-			"item": "oblivioustweaks:gilded_block"
+			"item": "oblivioustweaks:tea_crate"
 		}
 	],
 	"result": {
-		"item": "oblivioustweaks:gilded_ingot",
+		"item": "oblivioustweaks:tea_leaf",
 		"count": 9
 	}
 }
