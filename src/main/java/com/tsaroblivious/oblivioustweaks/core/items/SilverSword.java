@@ -2,7 +2,6 @@ package com.tsaroblivious.oblivioustweaks.core.items;
 
 import java.util.Map;
 
-import com.tsaroblivious.oblivioustweaks.ObliviousTweaks;
 import com.tsaroblivious.oblivioustweaks.common.entity.Vampire;
 import com.tsaroblivious.oblivioustweaks.common.material.CustomToolMaterial;
 import com.tsaroblivious.oblivioustweaks.core.init.EffectsInit;
@@ -35,13 +34,10 @@ public class SilverSword extends SwordItem {
 		if (entityA instanceof WitherSkeletonEntity || entityA instanceof Vampire
 				|| entityA.hasEffect(EffectsInit.vampirism_effect)) {
 			entityA.hurt(DamageSource.mobAttack(entityB), 8);
-			ObliviousTweaks.LOGGER.debug("silver sword attack");
 		} else {
 			Map<Enchantment, Integer> enchants = EnchantmentHelper.getEnchantments(item);
 			if (enchants.get(Enchantments.UNBREAKING) != null) {
 				float chance = (100f / (float) enchants.get(Enchantments.UNBREAKING) + 1f) / 100f;
-				ObliviousTweaks.LOGGER.debug(chance);
-				ObliviousTweaks.LOGGER.debug(enchants.get(Enchantments.UNBREAKING));
 				if (Math.random() > chance) {
 					item.setDamageValue(item.getDamageValue() + 1);
 				}

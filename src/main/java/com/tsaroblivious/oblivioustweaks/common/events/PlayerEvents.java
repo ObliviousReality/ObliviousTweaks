@@ -17,6 +17,7 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.BoatEntity;
+import net.minecraft.entity.item.ExperienceOrbEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -31,6 +32,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.event.TickEvent.PlayerTickEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.PotionEvent.PotionAddedEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.EntityInteract;
@@ -65,8 +67,6 @@ public class PlayerEvents {
 								Map<Enchantment, Integer> enchants = EnchantmentHelper.getEnchantments(heldItem);
 								if (enchants.get(Enchantments.UNBREAKING) != null) {
 									float chance = (100f / (float) enchants.get(Enchantments.UNBREAKING) + 1f) / 100f;
-									ObliviousTweaks.LOGGER.debug(chance);
-									ObliviousTweaks.LOGGER.debug(enchants.get(Enchantments.UNBREAKING));
 									if (Math.random() > chance) {
 										heldItem.setDamageValue(heldItem.getDamageValue() + 1);
 									}
@@ -130,8 +130,6 @@ public class PlayerEvents {
 	public static void cureDisease(PotionAddedEvent event) {
 		LivingEntity entity = event.getEntityLiving();
 		Effect effectAdded = event.getPotionEffect().getEffect();
-
-		ObliviousTweaks.LOGGER.debug("Drink");
 		if (effectAdded == EffectsInit.cure_disease_effect) {
 			if (effectAdded == Effects.WITHER || entity.hasEffect(Effects.WITHER)) {
 				entity.removeEffect(Effects.WITHER);
@@ -194,6 +192,32 @@ public class PlayerEvents {
 			}
 		} else {
 			event.setResult(Result.DEFAULT);
+		}
+	}
+
+	@SubscribeEvent
+	public static void gildedBreakEvent(BlockEvent.BreakEvent event) {
+		PlayerEntity player = event.getPlayer();
+		ItemStack held = player.getMainHandItem();
+		if (held.sameItem(new ItemStack(ItemInit.GILDED_PICKAXE.get()))
+				|| held.sameItem(new ItemStack(ItemInit.GILDED_AXE.get()))
+				|| held.sameItem(new ItemStack(ItemInit.GILDED_SHOVEL.get()))) {
+			if (event.getExpToDrop() > 1) {
+				event.setExpToDrop((int) (event.getExpToDrop() * 1.5));
+			}
+		}
+	}
+
+	@SubscribeEvent
+	public static void entityDeathEvent(LivingDeathEvent event) {
+		LivingEntity entityDied = event.getEntityLiving();
+		Entity attacker = event.getSource().getEntity();
+		if (attacker instanceof PlayerEntity) {
+			PlayerEntity player = (PlayerEntity) attacker;
+			if (player.getMainHandItem().sameItem(new ItemStack(ItemInit.GILDED_SWORD.get()))) {
+				player.level.addFreshEntity(new ExperienceOrbEntity(player.level, entityDied.getX(), entityDied.getY(),
+						entityDied.getZ(), 5));
+			}
 		}
 	}
 }

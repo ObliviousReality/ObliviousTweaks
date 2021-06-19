@@ -1,6 +1,5 @@
 package com.tsaroblivious.oblivioustweaks.core.entities;
 
-import com.tsaroblivious.oblivioustweaks.ObliviousTweaks;
 import com.tsaroblivious.oblivioustweaks.core.init.EntityInit;
 import com.tsaroblivious.oblivioustweaks.core.init.ItemInit;
 
@@ -105,7 +104,6 @@ public class ShotEntity extends AbstractArrowEntity {
 	@Override
 	protected void doPostHurtEffects(LivingEntity p_184548_1_) {
 		super.doPostHurtEffects(p_184548_1_);
-		ObliviousTweaks.LOGGER.debug(p_184548_1_.getHealth());
 	}
 
 }

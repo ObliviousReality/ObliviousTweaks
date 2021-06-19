@@ -1,6 +1,5 @@
 package com.tsaroblivious.oblivioustweaks.common.entity;
 
-import com.tsaroblivious.oblivioustweaks.ObliviousTweaks;
 import com.tsaroblivious.oblivioustweaks.core.init.EffectsInit;
 
 import net.minecraft.entity.Entity;
@@ -103,7 +102,6 @@ public class Vampire extends MonsterEntity {
 			if (entity instanceof LivingEntity) {
 				((LivingEntity) entity).addEffect(new EffectInstance(Effects.WITHER, 200));
 				double randVal = Math.random();
-				ObliviousTweaks.LOGGER.debug(randVal);
 				if (randVal < 0.1) {
 					((LivingEntity) entity)
 							.addEffect(new EffectInstance(EffectsInit.vampirism_effect, Integer.MAX_VALUE));

@@ -1,6 +1,5 @@
 package com.tsaroblivious.oblivioustweaks.core.items;
 
-import com.tsaroblivious.oblivioustweaks.ObliviousTweaks;
 import com.tsaroblivious.oblivioustweaks.client.entity.ShotRenderer;
 import com.tsaroblivious.oblivioustweaks.client.entity.VampireRenderer;
 import com.tsaroblivious.oblivioustweaks.common.entity.Vampire;
@@ -22,7 +21,6 @@ public class StartupClientOnly {
 	@SuppressWarnings("deprecation")
 	@SubscribeEvent
 	public static void onClientStartupEvent(FMLClientSetupEvent event) {
-		ObliviousTweaks.LOGGER.debug("FMLClientSetupEvent");
 		event.enqueueWork(StartupClientOnly::propertyOverride);
 //		RenderingRegistry.registerEntityRenderingHandler(SpearEntity.class, new SpearRenderer.RenderFactor());
 		DeferredWorkQueue.runLater(() -> {

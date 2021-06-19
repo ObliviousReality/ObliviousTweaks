@@ -2,7 +2,6 @@ package com.tsaroblivious.oblivioustweaks.core.blocks;
 
 import java.util.stream.Stream;
 
-import com.tsaroblivious.oblivioustweaks.ObliviousTweaks;
 import com.tsaroblivious.oblivioustweaks.core.init.ItemInit;
 import com.tsaroblivious.oblivioustweaks.core.init.TileEntityInit;
 
@@ -219,8 +218,6 @@ public class Kettle extends Block {
 
 				return ActionResultType.sidedSuccess(world.isClientSide);
 			}
-		} else {
-			ObliviousTweaks.LOGGER.debug(state.getValue(Kettle.FILLLEVEL));
 		}
 
 		if (player instanceof ServerPlayerEntity) {
