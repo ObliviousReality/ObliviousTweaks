@@ -4,8 +4,12 @@ import com.tsaroblivious.oblivioustweaks.ObliviousTweaks;
 import com.tsaroblivious.oblivioustweaks.common.material.CustomArmourMaterial;
 import com.tsaroblivious.oblivioustweaks.common.material.CustomToolMaterial;
 import com.tsaroblivious.oblivioustweaks.core.itemgroup.ObliviousTweaksItemGroup;
+import com.tsaroblivious.oblivioustweaks.core.items.BlackTea;
+import com.tsaroblivious.oblivioustweaks.core.items.CupOfTea;
 import com.tsaroblivious.oblivioustweaks.core.items.HotWaterBottle;
 import com.tsaroblivious.oblivioustweaks.core.items.IronDagger;
+import com.tsaroblivious.oblivioustweaks.core.items.MilkBottle;
+import com.tsaroblivious.oblivioustweaks.core.items.MilkyTea;
 import com.tsaroblivious.oblivioustweaks.core.items.Pistol;
 import com.tsaroblivious.oblivioustweaks.core.items.PistolShot;
 import com.tsaroblivious.oblivioustweaks.core.items.SilverSword;
@@ -101,9 +105,20 @@ public class ItemInit {
 			() -> new Item(new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
 
 	public static final RegistryObject<Item> HOT_WATER_BUCKET = ITEMS.register("hot_water_bucket",
-			() -> new Item(new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
+			() -> new Item(new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS).stacksTo(1)));
 
 	public static final RegistryObject<Item> HOT_WATER_BOTTLE = ITEMS.register("hot_water_bottle",
 			() -> new HotWaterBottle());
+
+	public static final RegistryObject<Item> MUG = ITEMS.register("mug",
+			() -> new Item(new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
+
+	public static final RegistryObject<Item> CUP_OF_TEA = ITEMS.register("cup_of_tea", () -> new CupOfTea());
+
+	public static final RegistryObject<Item> BLACK_TEA = ITEMS.register("black_tea", () -> new BlackTea());
+
+	public static final RegistryObject<Item> MILK_TEA = ITEMS.register("milk_tea", () -> new MilkyTea());
+	
+	public static final RegistryObject<Item> MILK_BOTTLE = ITEMS.register("milk_bottle", () -> new MilkBottle());
 
 }

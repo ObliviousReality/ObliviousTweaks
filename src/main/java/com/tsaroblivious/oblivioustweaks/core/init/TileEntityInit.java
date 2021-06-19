@@ -12,8 +12,7 @@ public class TileEntityInit {
 	public static final DeferredRegister<TileEntityType<?>> TILE_ENTITY_TYPE = DeferredRegister
 			.create(ForgeRegistries.TILE_ENTITIES, ObliviousTweaks.MOD_ID);
 
-	public static final RegistryObject<TileEntityType<KettleTileEntity>> KETTLE_TILE_ENTITY = TILE_ENTITY_TYPE
-			.register("kettle",
-					() -> TileEntityType.Builder.of(KettleTileEntity::new, BlockInit.KETTLE.get()).build(null));
+	public static final RegistryObject<TileEntityType<KettleTileEntity>> KETTLE_TILE_ENTITY = TILE_ENTITY_TYPE.register(
+			"kettle", () -> TileEntityType.Builder.of(KettleTileEntity::new, BlockInit.KETTLE.get()).build(null));
 
 }

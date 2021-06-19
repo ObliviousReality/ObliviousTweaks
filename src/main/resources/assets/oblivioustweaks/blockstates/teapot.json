@@ -1,0 +1,19 @@
+{
+	"variants": {
+		"facing=north": {
+			"model": "oblivioustweaks:block/teapot"
+		},
+		"facing=south": {
+			"model": "oblivioustweaks:block/teapot",
+			"y": 180
+		},
+		"facing=west": {
+			"model": "oblivioustweaks:block/teapot",
+			"y": 270
+		},
+		"facing=east": {
+			"model": "oblivioustweaks:block/teapot",
+			"y": 90
+		}
+	}
+}

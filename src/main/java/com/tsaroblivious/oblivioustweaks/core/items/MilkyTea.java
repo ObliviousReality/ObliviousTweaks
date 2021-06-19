@@ -1,5 +1,6 @@
 package com.tsaroblivious.oblivioustweaks.core.items;
 
+import com.tsaroblivious.oblivioustweaks.core.init.ItemInit;
 import com.tsaroblivious.oblivioustweaks.core.itemgroup.ObliviousTweaksItemGroup;
 
 import net.minecraft.entity.LivingEntity;
@@ -7,16 +8,16 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.item.UseAction;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class HotWaterBottle extends Item {
+public class MilkyTea extends Item {
 
-	public HotWaterBottle() {
+	public MilkyTea() {
 		super(new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)
-				.food(new Food.Builder().nutrition(0).saturationMod(0).alwaysEat().build()).stacksTo(16));
+				.food(new Food.Builder().nutrition(1).saturationMod(2F).alwaysEat().build()).stacksTo(16));
 	}
 
 	@Override
@@ -28,9 +29,9 @@ public class HotWaterBottle extends Item {
 
 			if (p_77654_1_.isEmpty()) {
 				serverplayerentity.setItemInHand(serverplayerentity.getUsedItemHand(),
-						new ItemStack(Items.GLASS_BOTTLE));
-			} else if (!serverplayerentity.inventory.add(new ItemStack(Items.GLASS_BOTTLE))) {
-				serverplayerentity.drop(new ItemStack(Items.GLASS_BOTTLE), false);
+						new ItemStack(ItemInit.MUG.get()));
+			} else if (!serverplayerentity.inventory.add(new ItemStack(ItemInit.MUG.get()))) {
+				serverplayerentity.drop(new ItemStack(ItemInit.MUG.get()), false);
 			}
 			serverplayerentity.refreshContainer(serverplayerentity.inventoryMenu);
 			return super.finishUsingItem(p_77654_1_, p_77654_2_, p_77654_3_);
@@ -43,6 +44,11 @@ public class HotWaterBottle extends Item {
 	@Override
 	public UseAction getUseAnimation(ItemStack p_77661_1_) {
 		return UseAction.DRINK;
+	}
+
+	@Override
+	public SoundEvent getEatingSound() {
+		return null;
 	}
 
 }

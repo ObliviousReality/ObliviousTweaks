@@ -85,6 +85,8 @@ repositories{
 dependencies {
     minecraft 'net.minecraftforge:forge:1.16.5-36.1.0'
     
+    runtimeOnly fg.deobf("curse.maven:appleskin-248787:3035787")
+    
     // JEI Dependencies
     
     compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")

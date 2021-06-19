@@ -2,6 +2,7 @@
 	"item.oblivioustweaks.example_item": "Example Item",
 	"block.oblivioustweaks.example_block": "Example Block",
 	"block.oblivioustweaks.kettle": "Kettle",
+	"block.oblivioustweaks.teapot": "Teapot",
 	"block.oblivioustweaks.shelf": "Shelf",
 	"block.oblivioustweaks.clover_crop": "Clover Seeds",
 	"block.oblivioustweaks.tea_crop": "Tea Seeds",
@@ -28,8 +29,14 @@
 	"item.oblivioustweaks.pistol_shot": "Pistol Shot",
 	"item.oblivioustweaks.tea_leaf": "Tea Leaf",
 	"item.oblivioustweaks.kettle": "Kettle",
+	"item.oblivioustweaks.teapot": "Teapot",
 	"item.oblivioustweaks.hot_water_bucket": "Bucket of Hot Water",
 	"item.oblivioustweaks.hot_water_bottle": "Bottle of Hot Water",
+	"item.oblivioustweaks.cup_of_tea": "Cup of Tea",
+	"item.oblivioustweaks.milk_tea": "Cup of Milky Tea",
+	"item.oblivioustweaks.black_tea": "Cup of Black Tea",
+	"item.oblivioustweaks.mug": "Mug",
+	"item.oblivioustweaks.milk_bottle": "Milk Bottle",
 	
 	"itemGroup.oblivioustweaks": "Oblivious Tweaks Items",
 	

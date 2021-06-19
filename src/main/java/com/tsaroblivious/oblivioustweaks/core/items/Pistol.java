@@ -183,7 +183,7 @@ public class Pistol extends CrossbowItem {
 			});
 			p_220016_0_.addFreshEntity(projectileentity);
 			p_220016_0_.playSound((PlayerEntity) null, p_220016_1_.getX(), p_220016_1_.getY(), p_220016_1_.getZ(),
-					SoundEvents.ANVIL_BREAK, SoundCategory.PLAYERS, 1.0F, p_220016_5_);
+					SoundEvents.ANVIL_LAND, SoundCategory.PLAYERS, 1.0F, p_220016_5_);
 		}
 	}
 

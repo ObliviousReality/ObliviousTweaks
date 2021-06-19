@@ -5,6 +5,7 @@ import com.tsaroblivious.oblivioustweaks.core.blocks.CloverCrop;
 import com.tsaroblivious.oblivioustweaks.core.blocks.Kettle;
 import com.tsaroblivious.oblivioustweaks.core.blocks.Shelf;
 import com.tsaroblivious.oblivioustweaks.core.blocks.TeaCrop;
+import com.tsaroblivious.oblivioustweaks.core.blocks.Teapot;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -34,7 +35,11 @@ public class BlockInit {
 			() -> new TeaCrop(Block.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).strength(0).noCollission()
 					.randomTicks().sound(SoundType.CROP)));
 
-	public static final RegistryObject<Block> KETTLE = BLOCKS.register("kettle",
-			() -> new Kettle());
+	public static final RegistryObject<Block> KETTLE = BLOCKS.register("kettle", () -> new Kettle());
+
+	public static final RegistryObject<Block> TEAPOT = BLOCKS.register("teapot", () -> new Teapot());
+
+	public static final RegistryObject<Block> TEA_CRATE = BLOCKS.register("tea_crate",
+			() -> new Block(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(1.5f, 1.5f)));
 
 }

@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "oblivioustweaks:black_tea"
+        },
+        {
+            "item": "oblivioustweaks:milk_bottle"
+        }
+    ],
+    "result": {
+        "item": "oblivioustweaks:milk_tea",
+        "count": 1
+    }
+}
