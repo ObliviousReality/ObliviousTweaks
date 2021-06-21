@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.function.Predicate;
 
+import javax.annotation.Nullable;
+
 import com.google.common.collect.Lists;
 import com.tsaroblivious.oblivioustweaks.core.init.ItemInit;
 import com.tsaroblivious.oblivioustweaks.core.itemgroup.ObliviousTweaksItemGroup;
@@ -83,7 +85,6 @@ public class Pistol extends CrossbowItem {
 		return p_220013_0_.getItem() == Items.CROSSBOW && containsChargedProjectile(p_220013_0_, Items.FIREWORK_ROCKET)
 				? 1.6F
 				: 3.15F;
-//		return 10F;
 	}
 
 	@Override
@@ -355,4 +356,35 @@ public class Pistol extends CrossbowItem {
 		listnbt.add(compoundnbt1);
 		compoundnbt.put("ChargedProjectiles", listnbt);
 	}
+
+	public static float isBeingLoaded(ItemStack itemStack, @Nullable World world, @Nullable LivingEntity livingEntity) {
+		final float NOT_PULLED = 0.0F;
+		final float IS_PULLED = 1.0F;
+		if (livingEntity == null)
+			return NOT_PULLED;
+		if (livingEntity.isUsingItem() && livingEntity.getUseItem() == itemStack)
+			return IS_PULLED;
+		return NOT_PULLED;
+	}
+
+	public static boolean isCharged(ItemStack p_220012_0_) {
+		CompoundNBT compoundnbt = p_220012_0_.getTag();
+		return compoundnbt != null && compoundnbt.getBoolean("Charged");
+	}
+
+	public static void setCharged(ItemStack p_220011_0_, boolean p_220011_1_) {
+		CompoundNBT compoundnbt = p_220011_0_.getOrCreateTag();
+		compoundnbt.putBoolean("Charged", p_220011_1_);
+	}
+
+	public static float isCharged(ItemStack itemStack, @Nullable World world, @Nullable LivingEntity livingEntity) {
+		CompoundNBT compoundnbt = itemStack.getTag();
+		boolean b = compoundnbt != null && compoundnbt.getBoolean("Charged");
+		if (b) {
+			return 1f;
+		} else {
+			return 0f;
+		}
+	}
+
 }

@@ -12,6 +12,7 @@ import com.tsaroblivious.oblivioustweaks.core.init.ItemInit;
 import com.tsaroblivious.oblivioustweaks.core.init.LootInit;
 import com.tsaroblivious.oblivioustweaks.core.init.TileEntityInit;
 import com.tsaroblivious.oblivioustweaks.core.itemgroup.ObliviousTweaksItemGroup;
+import com.tsaroblivious.oblivioustweaks.core.world.gen.ModSpawns;
 
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -23,6 +24,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
@@ -90,5 +92,10 @@ public class ObliviousTweaks {
 						.setRegistryName(MOD_ID, "vampirism"),
 				EffectsInit.cure_disease_effect = new EffectsInit.CureDiseaseEffect(EffectType.BENEFICIAL, 0x69C45C)
 						.setRegistryName(MOD_ID, "curedisease"));
+	}
+
+	@SubscribeEvent
+	public void onBiomeLoadFromJSON(BiomeLoadingEvent event) {
+		ModSpawns.spawnEntities(event);
 	}
 }

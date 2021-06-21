@@ -10,6 +10,6 @@ public class ClientSideOnlyModEventRegistrar {
 	}
 
 	public void registerClientOnlyEvents() {
-		eventBus.register(com.tsaroblivious.oblivioustweaks.core.items.StartupClientOnly.class);
+		eventBus.register(com.tsaroblivious.oblivioustweaks.core.StartupClientOnly.class);
 	}
 }

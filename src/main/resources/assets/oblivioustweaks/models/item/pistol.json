@@ -260,5 +260,14 @@
 			"rotation": [0, -90, 0],
 			"translation": [1, 2.75, 0]
 		}
-	}
+	},
+	
+	"overrides": [
+        {
+            "predicate": {
+                "loaded": 1
+            },
+            "model": "oblivioustweaks:item/pistol_loaded"
+        }
+    ]
 }

@@ -9,6 +9,7 @@ import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.FleeSunGoal;
+import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
@@ -45,9 +46,9 @@ public class Vampire extends MonsterEntity {
 	}
 
 	public static AttributeModifierMap.MutableAttribute createMobAttributes() {
-		return MobEntity.createLivingAttributes().add(Attributes.MAX_HEALTH, 20.0f).add(Attributes.ATTACK_DAMAGE, 2f)
-				.add(Attributes.ATTACK_SPEED, 0.5f).add(Attributes.MOVEMENT_SPEED, 0.25f)
-				.add(Attributes.FOLLOW_RANGE, 12f).add(Attributes.ATTACK_KNOCKBACK, 0.5f);
+		return MobEntity.createLivingAttributes().add(Attributes.MAX_HEALTH, 20.0f).add(Attributes.ATTACK_DAMAGE, 4f)
+				.add(Attributes.ATTACK_SPEED, 0.5f).add(Attributes.MOVEMENT_SPEED, (double) 0.23F)
+				.add(Attributes.FOLLOW_RANGE, 30f).add(Attributes.ATTACK_KNOCKBACK, 0.5f);
 	}
 
 	@Override
@@ -60,7 +61,9 @@ public class Vampire extends MonsterEntity {
 		this.goalSelector.addGoal(4, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
 		this.goalSelector.addGoal(5, new LookAtGoal(this, PlayerEntity.class, 8.0f));
 		this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
-		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
+		this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
+		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, VampireHunter.class, true));
+		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
 	}
 
 	@Override
