@@ -1,5 +1,6 @@
 package com.tsaroblivious.oblivioustweaks.common.events;
 
+import java.util.Arrays;
 import java.util.Map;
 
 import com.tsaroblivious.oblivioustweaks.ObliviousTweaks;
@@ -19,6 +20,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.BoatEntity;
 import net.minecraft.entity.item.ExperienceOrbEntity;
 import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -28,12 +30,15 @@ import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Direction;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.event.TickEvent.PlayerTickEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.PotionEvent.PotionAddedEvent;
+import net.minecraftforge.event.entity.living.PotionEvent.PotionApplicableEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.EntityInteract;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
@@ -46,9 +51,13 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 @EventBusSubscriber(modid = ObliviousTweaks.MOD_ID, bus = Bus.FORGE)
 public class PlayerEvents {
 
+	private static Effect[] CURE_EFFECTS = { Effects.BLINDNESS, Effects.DIG_SLOWDOWN, Effects.HUNGER, Effects.POISON,
+			Effects.WITHER, Effects.CONFUSION, null };
+
 	@SubscribeEvent
 	public static void daggerAttack(EntityInteract event) {
 		Item dagger = ItemInit.IRON_DAGGER.get();
+		ItemStack bottle = new ItemStack(Items.GLASS_BOTTLE);
 		World world = event.getWorld();
 		if (!world.isClientSide) {
 			PlayerEntity player = event.getPlayer();
@@ -62,6 +71,8 @@ public class PlayerEvents {
 						if (dist < 7) {
 							float damage = (float) ((float) 2f + (8 - ((dist / 7) * 8)));
 							livingEntity.hurt(DamageSource.playerAttack(player), damage);
+							world.playSound((PlayerEntity) null, event.getPos(), SoundEvents.ANVIL_PLACE,
+									SoundCategory.NEUTRAL, 1.0F, 1.0F);
 							player.getCooldowns().addCooldown(dagger, 40);
 							if (!player.abilities.instabuild) {
 								Map<Enchantment, Integer> enchants = EnchantmentHelper.getEnchantments(heldItem);
@@ -74,6 +85,22 @@ public class PlayerEvents {
 									heldItem.setDamageValue(heldItem.getDamageValue() + 1);
 								}
 							}
+						}
+					}
+				}
+			} else if (heldItem.sameItem(bottle)) {
+				if (entity instanceof CowEntity) {
+					ItemStack milkBottle = new ItemStack(ItemInit.MILK_BOTTLE.get());
+					if (!player.abilities.instabuild) {
+						heldItem.shrink(1);
+						if (!world.isClientSide) {
+							world.playSound((PlayerEntity) null, event.getPos(), SoundEvents.COW_MILK,
+									SoundCategory.NEUTRAL, 1.0F, 1.0F);
+						}
+						if (heldItem.isEmpty()) {
+							player.setItemInHand(event.getHand(), milkBottle);
+						} else if (!player.inventory.add(milkBottle)) {
+							player.drop(milkBottle, false);
 						}
 					}
 				}
@@ -128,30 +155,33 @@ public class PlayerEvents {
 
 	@SubscribeEvent
 	public static void cureDisease(PotionAddedEvent event) {
+		if (CURE_EFFECTS[6] == null)
+			CURE_EFFECTS[6] = EffectsInit.vampirism_effect.getEffect();
 		LivingEntity entity = event.getEntityLiving();
 		Effect effectAdded = event.getPotionEffect().getEffect();
 		if (effectAdded == EffectsInit.cure_disease_effect) {
-			if (effectAdded == Effects.WITHER || entity.hasEffect(Effects.WITHER)) {
-				entity.removeEffect(Effects.WITHER);
-			}
-			if (effectAdded == Effects.POISON || entity.hasEffect(Effects.POISON)) {
-				entity.removeEffect(Effects.POISON);
-			}
-			if (effectAdded == EffectsInit.vampirism_effect || entity.hasEffect(EffectsInit.vampirism_effect)) {
-				entity.removeEffect(EffectsInit.vampirism_effect);
-			}
-		} else if (entity.hasEffect(EffectsInit.prevent_disease_effect)) {
-			if (effectAdded == Effects.WITHER && event.getOldPotionEffect() == null) {
-				entity.removeEffect(Effects.WITHER);
-			}
-			if (effectAdded == Effects.POISON && event.getOldPotionEffect() == null) {
-				entity.removeEffect(Effects.POISON);
-			}
-			if (effectAdded == EffectsInit.vampirism_effect && event.getOldPotionEffect() == null) {
-				entity.removeEffect(EffectsInit.vampirism_effect);
+			for (Effect eff : CURE_EFFECTS) {
+				if (entity.hasEffect(eff)) {
+					entity.removeEffect(eff);
+				}
 			}
 		}
 
+	}
+
+	@SubscribeEvent
+	public static void test(PotionApplicableEvent event) {
+		if (CURE_EFFECTS[6] == null)
+			CURE_EFFECTS[6] = EffectsInit.vampirism_effect.getEffect();
+		LivingEntity entity = event.getEntityLiving();
+		Effect effectAdded = event.getPotionEffect().getEffect();
+		if (entity.hasEffect(EffectsInit.prevent_disease_effect)
+				|| entity.hasEffect(EffectsInit.vampirism_effect.getEffect())) {
+			if (Arrays.asList(CURE_EFFECTS).contains(effectAdded) && !entity.hasEffect(effectAdded)) {
+				entity.removeEffect(effectAdded);
+				event.setResult(Result.DENY);
+			}
+		}
 	}
 
 	@SubscribeEvent

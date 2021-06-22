@@ -23,9 +23,9 @@ public class ModSpawns {
 		Biome biome = ForgeRegistries.BIOMES.getValue(event.getName());
 		if (Arrays.asList(biomes).contains(biome.getBiomeCategory())) {
 			event.getSpawns().getSpawner(EntityClassification.MONSTER)
-					.add(new MobSpawnInfo.Spawners(EntityInit.VAMPIRE.get(), 5, 1, 2));
+					.add(new MobSpawnInfo.Spawners(EntityInit.VAMPIRE.get(), 2, 1, 1));
 			event.getSpawns().getSpawner(EntityClassification.MONSTER)
-					.add(new MobSpawnInfo.Spawners(EntityInit.VAMPIRE_HUNTER.get(), 5, 2, 4));
+					.add(new MobSpawnInfo.Spawners(EntityInit.VAMPIRE_HUNTER.get(), 2, 2, 4));
 		}
 	}
 
