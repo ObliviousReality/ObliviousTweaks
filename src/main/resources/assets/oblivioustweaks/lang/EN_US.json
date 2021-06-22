@@ -38,6 +38,8 @@
 	"item.oblivioustweaks.black_tea": "Cup of Black Tea",
 	"item.oblivioustweaks.mug": "Mug",
 	"item.oblivioustweaks.milk_bottle": "Milk Bottle",
+	"item.oblivioustweaks.pirate_hat": "Pirate Hat",
+	"item.oblivioustweaks.parasol": "Parasol",
 	
 	"itemGroup.oblivioustweaks": "Oblivious Tweaks Items",
 	
@@ -59,5 +61,6 @@
 	"item.minecraft.lingering_potion.effect.curedisease": "Lingering Potion of Cure Disease",
 	"item.minecraft.tipped_arrow.effect.curedisease": "Arrow of Cure Disease",
 	
-	"entity.oblivioustweaks.vampire": "Vampire"
+	"entity.oblivioustweaks.vampire": "Vampire",
+	"entity.oblivioustweaks.vampire_hunter": "Zombie Vampire Hunter"
 }

@@ -52,6 +52,7 @@ public class ObliviousTweaks {
 		final ClientSideOnlyModEventRegistrar csomer = new ClientSideOnlyModEventRegistrar(bus);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 		DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> csomer::registerClientOnlyEvents);
+		
 	}
 
 	private void setup(final FMLCommonSetupEvent event) {

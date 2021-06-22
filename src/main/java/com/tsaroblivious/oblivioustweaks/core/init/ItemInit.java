@@ -17,6 +17,7 @@ import com.tsaroblivious.oblivioustweaks.core.items.Spear;
 
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.HoeItem;
@@ -118,7 +119,14 @@ public class ItemInit {
 	public static final RegistryObject<Item> BLACK_TEA = ITEMS.register("black_tea", () -> new BlackTea());
 
 	public static final RegistryObject<Item> MILK_TEA = ITEMS.register("milk_tea", () -> new MilkyTea());
-	
+
 	public static final RegistryObject<Item> MILK_BOTTLE = ITEMS.register("milk_bottle", () -> new MilkBottle());
+
+	public static final RegistryObject<Item> PIRATE_HAT = ITEMS.register("pirate_hat",
+			() -> new ArmorItem(ArmorMaterial.LEATHER, EquipmentSlotType.HEAD,
+					new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
+
+	public static final RegistryObject<Item> PARASOL = ITEMS.register("parasol",
+			() -> new Item(new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS).stacksTo(1)));
 
 }

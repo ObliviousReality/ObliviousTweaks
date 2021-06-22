@@ -159,7 +159,7 @@ public class PlayerEvents {
 		PlayerEntity player = event.player;
 		World level = player.level;
 		if (!level.isClientSide) {
-			if (player.hasEffect(EffectsInit.vampirism_effect)) {
+			if (player.hasEffect(EffectsInit.vampirism_effect) && !player.isHolding(ItemInit.PARASOL.get())) {
 				if (shouldBurn(player, level)) {
 					player.setSecondsOnFire(5);
 				}

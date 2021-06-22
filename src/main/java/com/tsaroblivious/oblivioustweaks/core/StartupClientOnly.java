@@ -1,6 +1,7 @@
 package com.tsaroblivious.oblivioustweaks.core;
 
 import com.tsaroblivious.oblivioustweaks.client.entity.ShotRenderer;
+import com.tsaroblivious.oblivioustweaks.client.entity.SpearRenderer;
 import com.tsaroblivious.oblivioustweaks.client.entity.VampireHunterRenderer;
 import com.tsaroblivious.oblivioustweaks.client.entity.VampireRenderer;
 import com.tsaroblivious.oblivioustweaks.common.entity.Vampire;
@@ -26,7 +27,6 @@ public class StartupClientOnly {
 	@SubscribeEvent
 	public static void onClientStartupEvent(FMLClientSetupEvent event) {
 		event.enqueueWork(StartupClientOnly::propertyOverride);
-//		RenderingRegistry.registerEntityRenderingHandler(SpearEntity.class, new SpearRenderer.RenderFactor());
 		DeferredWorkQueue.runLater(() -> {
 			GlobalEntityTypeAttributes.put(EntityInit.VAMPIRE.get(), Vampire.createMobAttributes().build());
 		});
@@ -36,6 +36,7 @@ public class StartupClientOnly {
 		});
 		RenderingRegistry.registerEntityRenderingHandler(EntityInit.VAMPIRE.get(), VampireRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityInit.VAMPIRE_HUNTER.get(), VampireHunterRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityInit.SPEAR_ENTITY.get(), SpearRenderer::new);
 		RenderTypeLookup.setRenderLayer(BlockInit.CLOVER_CROP.get(), RenderType.cutout());
 		RenderTypeLookup.setRenderLayer(BlockInit.TEA_CROP.get(), RenderType.cutout());
 		RenderTypeLookup.setRenderLayer(BlockInit.KETTLE.get(), RenderType.cutout());
