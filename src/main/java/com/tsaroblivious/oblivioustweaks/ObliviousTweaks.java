@@ -3,6 +3,7 @@ package com.tsaroblivious.oblivioustweaks;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.tsaroblivious.oblivioustweaks.common.item.CustomSpawnEggItem;
 import com.tsaroblivious.oblivioustweaks.core.blocks.CloverCrop;
 import com.tsaroblivious.oblivioustweaks.core.blocks.TeaCrop;
 import com.tsaroblivious.oblivioustweaks.core.init.BlockInit;
@@ -14,6 +15,7 @@ import com.tsaroblivious.oblivioustweaks.core.init.TileEntityInit;
 import com.tsaroblivious.oblivioustweaks.core.itemgroup.ObliviousTweaksItemGroup;
 import com.tsaroblivious.oblivioustweaks.core.world.gen.ModSpawns;
 
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Effect;
@@ -52,7 +54,7 @@ public class ObliviousTweaks {
 		final ClientSideOnlyModEventRegistrar csomer = new ClientSideOnlyModEventRegistrar(bus);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 		DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> csomer::registerClientOnlyEvents);
-		
+
 	}
 
 	private void setup(final FMLCommonSetupEvent event) {
@@ -99,4 +101,10 @@ public class ObliviousTweaks {
 	public void onBiomeLoadFromJSON(BiomeLoadingEvent event) {
 		ModSpawns.spawnEntities(event);
 	}
+
+	@SubscribeEvent
+	public static void onRegisterEntities(final RegistryEvent.Register<EntityType<?>> event) {
+		CustomSpawnEggItem.initSpawnEggs();
+	}
+
 }

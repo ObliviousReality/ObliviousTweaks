@@ -1,6 +1,7 @@
 package com.tsaroblivious.oblivioustweaks.core.init;
 
 import com.tsaroblivious.oblivioustweaks.ObliviousTweaks;
+import com.tsaroblivious.oblivioustweaks.common.item.CustomSpawnEggItem;
 import com.tsaroblivious.oblivioustweaks.common.material.CustomArmourMaterial;
 import com.tsaroblivious.oblivioustweaks.common.material.CustomToolMaterial;
 import com.tsaroblivious.oblivioustweaks.core.itemgroup.ObliviousTweaksItemGroup;
@@ -10,6 +11,7 @@ import com.tsaroblivious.oblivioustweaks.core.items.HotWaterBottle;
 import com.tsaroblivious.oblivioustweaks.core.items.IronDagger;
 import com.tsaroblivious.oblivioustweaks.core.items.MilkBottle;
 import com.tsaroblivious.oblivioustweaks.core.items.MilkyTea;
+import com.tsaroblivious.oblivioustweaks.core.items.Musket;
 import com.tsaroblivious.oblivioustweaks.core.items.Pistol;
 import com.tsaroblivious.oblivioustweaks.core.items.PistolShot;
 import com.tsaroblivious.oblivioustweaks.core.items.SilverSword;
@@ -17,7 +19,6 @@ import com.tsaroblivious.oblivioustweaks.core.items.Spear;
 
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
-import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.HoeItem;
@@ -35,6 +36,18 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> GILDED_INGOT = ITEMS.register("gilded_ingot",
 			() -> new Item(new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
+
+	public static final RegistryObject<CustomSpawnEggItem> VAMPIRE_SPAWN_EGG = ITEMS.register("vampire_spawn_egg",
+			() -> new CustomSpawnEggItem(EntityInit.VAMPIRE, 0x000000, 0xFFFFFF,
+					new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
+
+	public static final RegistryObject<CustomSpawnEggItem> VAMPIRE_HUNTER_SPAWN_EGG = ITEMS
+			.register("vampire_hunter_spawn_egg", () -> new CustomSpawnEggItem(EntityInit.VAMPIRE_HUNTER, 0xFFFFFF,
+					0x000000, new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
+
+	public static final RegistryObject<CustomSpawnEggItem> PIRATE_SPAWN_EGG = ITEMS.register("pirate_spawn_egg",
+			() -> new CustomSpawnEggItem(EntityInit.PIRATE, 0xFFFF00, 0xFF6666,
+					new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
 
 	public static final RegistryObject<Item> SPEAR = ITEMS.register("spear", () -> new Spear());
 
@@ -122,11 +135,12 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> MILK_BOTTLE = ITEMS.register("milk_bottle", () -> new MilkBottle());
 
-	public static final RegistryObject<Item> PIRATE_HAT = ITEMS.register("pirate_hat",
-			() -> new ArmorItem(ArmorMaterial.LEATHER, EquipmentSlotType.HEAD,
-					new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
-
 	public static final RegistryObject<Item> PARASOL = ITEMS.register("parasol",
 			() -> new Item(new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS).stacksTo(1)));
+
+	public static final RegistryObject<Item> MUSKET = ITEMS.register("musket", () -> new Musket());
+
+	public static final RegistryObject<Item> BARREL = ITEMS.register("barrel",
+			() -> new Item(new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
 
 }

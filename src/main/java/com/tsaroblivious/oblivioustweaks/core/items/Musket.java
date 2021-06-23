@@ -38,7 +38,7 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.util.math.vector.Vector3f;
 import net.minecraft.world.World;
 
-public class Pistol extends CrossbowItem {
+public class Musket extends CrossbowItem {
 
 	private boolean startSoundPlayed = false;
 	private boolean midLoadSoundPlayed = false;
@@ -47,8 +47,8 @@ public class Pistol extends CrossbowItem {
 		return p_220002_0_.sameItem(new ItemStack(ItemInit.PISTOL_SHOT.get()));
 	};
 
-	public Pistol() {
-		super(new Item.Properties().stacksTo(2).tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS).durability(250));
+	public Musket() {
+		super(new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS).defaultDurability(250));
 	}
 
 	@Override
@@ -82,9 +82,7 @@ public class Pistol extends CrossbowItem {
 	}
 
 	private static float getShootingPower(ItemStack p_220013_0_) {
-		return p_220013_0_.getItem() == Items.CROSSBOW && containsChargedProjectile(p_220013_0_, Items.FIREWORK_ROCKET)
-				? 1.6F
-				: 3.15F;
+		return 4f;
 	}
 
 	@Override
@@ -266,7 +264,7 @@ public class Pistol extends CrossbowItem {
 
 	public static int getChargeDuration(ItemStack p_220026_0_) {
 		int i = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.QUICK_CHARGE, p_220026_0_);
-		return i == 0 ? 40 : 40 - 5 * i;
+		return i == 0 ? 85 : 85 - 5 * i;
 	}
 
 	public int getUseDuration(ItemStack p_77626_1_) {

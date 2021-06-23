@@ -1,0 +1,29 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" F ",
+		"LPB",
+		" G "
+	],
+	"key": {
+		"G": {
+			"item": "oblivioustweaks:gilded_ingot"
+		},
+		"F": {
+			"item": "minecraft:flint"
+		},
+		"P": {
+			"item": "oblivioustweaks:pistol"
+		},
+		"B": {
+			"item": "oblivioustweaks:barrel"
+		},
+		"L": {
+			"tag": "minecraft:logs"
+		}
+	},
+	"result": {
+		"item": "oblivioustweaks:musket",
+		"count": 1
+	}
+}

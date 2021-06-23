@@ -1,6 +1,7 @@
 package com.tsaroblivious.oblivioustweaks.core.init;
 
 import com.tsaroblivious.oblivioustweaks.ObliviousTweaks;
+import com.tsaroblivious.oblivioustweaks.common.entity.Pirate;
 import com.tsaroblivious.oblivioustweaks.common.entity.Vampire;
 import com.tsaroblivious.oblivioustweaks.common.entity.VampireHunter;
 import com.tsaroblivious.oblivioustweaks.core.entities.ShotEntity;
@@ -34,5 +35,9 @@ public class EntityInit {
 	public static final RegistryObject<EntityType<SpearEntity>> SPEAR_ENTITY = ENTITY_TYPES.register("spear_entity",
 			() -> EntityType.Builder.<SpearEntity>of(SpearEntity::new, EntityClassification.MISC).sized(0.2f, 0.2f)
 					.build(new ResourceLocation(ObliviousTweaks.MOD_ID, "spear_entity").toString()));
+
+	public static final RegistryObject<EntityType<Pirate>> PIRATE = ENTITY_TYPES.register("pirate",
+			() -> EntityType.Builder.of(Pirate::new, EntityClassification.MONSTER).sized(1.0f, 2.0f)
+					.build(new ResourceLocation(ObliviousTweaks.MOD_ID, "pirate").toString()));
 
 }

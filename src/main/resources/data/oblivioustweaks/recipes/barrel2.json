@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"GGG",
+		"   ",
+		"GGG"
+	],
+	"key": {
+		"G": {
+			"item": "oblivioustweaks:gilded_ingot"
+		}
+	},
+	"result": {
+		"item": "oblivioustweaks:barrel",
+		"count": 1
+	}
+}

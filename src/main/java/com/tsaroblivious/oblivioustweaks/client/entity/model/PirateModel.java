@@ -2,7 +2,7 @@ package com.tsaroblivious.oblivioustweaks.client.entity.model;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
-import com.tsaroblivious.oblivioustweaks.common.entity.VampireHunter;
+import com.tsaroblivious.oblivioustweaks.common.entity.Pirate;
 
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.client.renderer.entity.model.EntityModel;
@@ -17,10 +17,11 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class VampireHunterModel<T extends VampireHunter> extends EntityModel<T> implements IHasArm, IHasHead {
+public class PirateModel<T extends Pirate> extends EntityModel<T> implements IHasArm, IHasHead {
 
 	private final ModelRenderer head;
-	private final ModelRenderer headwear;
+	private final ModelRenderer hat;
+	private final ModelRenderer nose;
 	private final ModelRenderer body;
 	private final ModelRenderer left_arm;
 	private final ModelRenderer right_arm;
@@ -33,39 +34,62 @@ public class VampireHunterModel<T extends VampireHunter> extends EntityModel<T> 
 	public float swimAmount;
 	public boolean crouching;
 
-	public VampireHunterModel() {
+	public PirateModel() {
 		texWidth = 64;
 		texHeight = 64;
 
 		head = new ModelRenderer(this);
 		head.setPos(0.0F, 0.0F, 0.0F);
-		head.texOffs(0, 0).addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, 0.0F, false);
+		head.texOffs(0, 0).addBox(-4.0F, -10.0F, -4.0F, 8.0F, 10.0F, 8.0F, 0.0F, false);
+		head.texOffs(32, 8).addBox(-3.0F, -2.0F, -5.0F, 6.0F, 6.0F, 1.0F, 0.0F, false);
+		head.texOffs(32, 8).addBox(-2.0F, 4.0F, -5.0F, 4.0F, 1.0F, 1.0F, 0.0F, false);
+		head.texOffs(28, 46).addBox(-1.0F, -9.0F, -10.0F, 2.0F, 1.0F, 16.0F, 0.0F, false);
+		head.texOffs(28, 46).addBox(1.0F, -9.0F, -9.0F, 1.0F, 1.0F, 15.0F, 0.0F, false);
+		head.texOffs(28, 46).addBox(-2.0F, -9.0F, -9.0F, 1.0F, 1.0F, 15.0F, 0.0F, false);
+		head.texOffs(28, 46).addBox(-3.0F, -9.0F, -8.0F, 1.0F, 1.0F, 14.0F, 0.0F, false);
+		head.texOffs(28, 46).addBox(2.0F, -9.0F, -8.0F, 1.0F, 1.0F, 14.0F, 0.0F, false);
+		head.texOffs(28, 46).addBox(3.0F, -9.0F, -7.0F, 1.0F, 1.0F, 13.0F, 0.0F, false);
+		head.texOffs(28, 46).addBox(-4.0F, -9.0F, -7.0F, 1.0F, 1.0F, 13.0F, 0.0F, false);
+		head.texOffs(28, 46).addBox(-5.0F, -9.0F, -6.0F, 1.0F, 1.0F, 11.0F, 0.0F, false);
+		head.texOffs(28, 46).addBox(4.0F, -9.0F, -6.0F, 1.0F, 1.0F, 11.0F, 0.0F, false);
+		head.texOffs(28, 46).addBox(5.0F, -9.0F, -5.0F, 1.0F, 1.0F, 10.0F, 0.0F, false);
+		head.texOffs(28, 46).addBox(6.0F, -9.0F, -4.0F, 1.0F, 1.0F, 9.0F, 0.0F, false);
+		head.texOffs(28, 46).addBox(-7.0F, -9.0F, -4.0F, 1.0F, 1.0F, 9.0F, 0.0F, false);
+		head.texOffs(28, 46).addBox(-8.0F, -9.0F, -3.0F, 1.0F, 1.0F, 8.0F, 0.0F, false);
+		head.texOffs(28, 46).addBox(7.0F, -9.0F, -3.0F, 1.0F, 1.0F, 8.0F, 0.0F, false);
+		head.texOffs(28, 46).addBox(-6.0F, -9.0F, -5.0F, 1.0F, 1.0F, 10.0F, 0.0F, false);
 
-		headwear = new ModelRenderer(this);
-		headwear.setPos(0.0F, 0.0F, 0.0F);
-		headwear.texOffs(32, 0).addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, 0.25F, false);
+		hat = new ModelRenderer(this);
+		hat.setPos(0.0F, 24.0F, 0.0F);
+
+		nose = new ModelRenderer(this);
+		nose.setPos(0.0F, -2.0F, 0.0F);
+		nose.texOffs(25, 1).addBox(-1.0F, -1.0F, -6.0F, 2.0F, 4.0F, 1.0F, 0.0F, false);
+		nose.texOffs(25, 1).addBox(-1.0F, -1.0F, -5.0F, 2.0F, 1.0F, 1.0F, 0.0F, false);
+		this.head.addChild(nose);
 
 		body = new ModelRenderer(this);
 		body.setPos(0.0F, 0.0F, 0.0F);
-		body.texOffs(16, 16).addBox(-4.0F, 0.0F, -2.0F, 8.0F, 12.0F, 4.0F, 0.0F, false);
-		body.texOffs(0, 0).addBox(0.0F, 12.0F, 2.0F, 3.0F, 7.0F, 1.0F, 0.0F, false);
-		body.texOffs(0, 0).addBox(-3.0F, 12.0F, 2.0F, 3.0F, 7.0F, 1.0F, 0.0F, false);
+		body.texOffs(16, 20).addBox(-4.0F, 0.0F, -3.0F, 8.0F, 12.0F, 6.0F, 0.0F, false);
+		body.texOffs(0, 38).addBox(-4.0F, 0.0F, -3.0F, 8.0F, 18.0F, 6.0F, 0.5F, false);
 
 		left_arm = new ModelRenderer(this);
 		left_arm.setPos(-5.0F, 2.0F, 0.0F);
-		left_arm.texOffs(40, 16).addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, true);
+		left_arm.texOffs(44, 20).addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, true);
 
 		right_arm = new ModelRenderer(this);
 		right_arm.setPos(5.0F, 2.0F, 0.0F);
-		right_arm.texOffs(40, 16).addBox(-3.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
+		right_arm.texOffs(44, 20).addBox(-3.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
 
 		left_leg = new ModelRenderer(this);
-		left_leg.setPos(-1.9F, 12.0F, 0.0F);
-		left_leg.texOffs(0, 16).addBox(1.9F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, true);
+		left_leg.setPos(-2.0F, 12.0F, 0.0F);
+		left_leg.texOffs(0, 22).addBox(2.0F, 0.0F, -2.0F, 4.0F, 8.0F, 4.0F, 0.0F, true);
+		left_leg.texOffs(37, 38).addBox(3.0F, 8.0F, -1.0F, 2.0F, 4.0F, 2.0F, 0.0F, false);
 
 		right_leg = new ModelRenderer(this);
-		right_leg.setPos(1.9F, 12.0F, 0.0F);
-		right_leg.texOffs(0, 16).addBox(-5.9F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
+		right_leg.setPos(2.0F, 12.0F, 0.0F);
+		right_leg.texOffs(0, 22).addBox(-6.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
+		right_leg.texOffs(37, 38).addBox(-7.0F, 7.0F, -3.0F, 5.0F, 2.0F, 6.0F, 0.0F, false);
 
 	}
 
@@ -73,7 +97,7 @@ public class VampireHunterModel<T extends VampireHunter> extends EntityModel<T> 
 	public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay,
 			float red, float green, float blue, float alpha) {
 		head.render(matrixStack, buffer, packedLight, packedOverlay);
-		headwear.render(matrixStack, buffer, packedLight, packedOverlay);
+		hat.render(matrixStack, buffer, packedLight, packedOverlay);
 		body.render(matrixStack, buffer, packedLight, packedOverlay);
 		left_arm.render(matrixStack, buffer, packedLight, packedOverlay);
 		right_arm.render(matrixStack, buffer, packedLight, packedOverlay);
@@ -222,7 +246,7 @@ public class VampireHunterModel<T extends VampireHunter> extends EntityModel<T> 
 					0.3F * MathHelper.cos(limbSwing * 0.33333334F));
 		}
 
-		this.headwear.copyFrom(this.head);
+		this.hat.copyFrom(this.head);
 
 		AbstractIllagerEntity.ArmPose abstractillagerentity$armpose = entity.getArmPose();
 		if (abstractillagerentity$armpose == AbstractIllagerEntity.ArmPose.ATTACKING) {

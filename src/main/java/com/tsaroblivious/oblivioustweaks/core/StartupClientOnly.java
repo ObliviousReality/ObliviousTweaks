@@ -1,5 +1,6 @@
 package com.tsaroblivious.oblivioustweaks.core;
 
+import com.tsaroblivious.oblivioustweaks.client.entity.PirateRenderer;
 import com.tsaroblivious.oblivioustweaks.client.entity.ShotRenderer;
 import com.tsaroblivious.oblivioustweaks.client.entity.SpearRenderer;
 import com.tsaroblivious.oblivioustweaks.client.entity.VampireHunterRenderer;
@@ -9,7 +10,7 @@ import com.tsaroblivious.oblivioustweaks.common.entity.VampireHunter;
 import com.tsaroblivious.oblivioustweaks.core.init.BlockInit;
 import com.tsaroblivious.oblivioustweaks.core.init.EntityInit;
 import com.tsaroblivious.oblivioustweaks.core.init.ItemInit;
-import com.tsaroblivious.oblivioustweaks.core.items.Pistol;
+import com.tsaroblivious.oblivioustweaks.core.items.Musket;
 import com.tsaroblivious.oblivioustweaks.core.items.Spear;
 
 import net.minecraft.client.renderer.RenderType;
@@ -34,8 +35,12 @@ public class StartupClientOnly {
 			GlobalEntityTypeAttributes.put(EntityInit.VAMPIRE_HUNTER.get(),
 					VampireHunter.createMobAttributes().build());
 		});
+		DeferredWorkQueue.runLater(() -> {
+			GlobalEntityTypeAttributes.put(EntityInit.PIRATE.get(), VampireHunter.createMobAttributes().build());
+		});
 		RenderingRegistry.registerEntityRenderingHandler(EntityInit.VAMPIRE.get(), VampireRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityInit.VAMPIRE_HUNTER.get(), VampireHunterRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityInit.PIRATE.get(), PirateRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityInit.SPEAR_ENTITY.get(), SpearRenderer::new);
 		RenderTypeLookup.setRenderLayer(BlockInit.CLOVER_CROP.get(), RenderType.cutout());
 		RenderTypeLookup.setRenderLayer(BlockInit.TEA_CROP.get(), RenderType.cutout());
@@ -45,7 +50,7 @@ public class StartupClientOnly {
 
 	public static void propertyOverride() {
 		ItemModelsProperties.register(ItemInit.SPEAR.get(), new ResourceLocation("throwing"), Spear::isBeingThrown);
-		ItemModelsProperties.register(ItemInit.PISTOL.get(), new ResourceLocation("loading"), Pistol::isBeingLoaded);
-		ItemModelsProperties.register(ItemInit.PISTOL.get(), new ResourceLocation("loaded"), Pistol::isCharged);
+		ItemModelsProperties.register(ItemInit.MUSKET.get(), new ResourceLocation("loading"), Musket::isBeingLoaded);
+		ItemModelsProperties.register(ItemInit.MUSKET.get(), new ResourceLocation("loaded"), Musket::isCharged);
 	}
 }
