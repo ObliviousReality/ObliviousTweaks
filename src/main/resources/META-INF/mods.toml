@@ -5,9 +5,8 @@ license="All rights reserved"
 modId="oblivioustweaks" #mandatory
 version="${file.jarVersion}" #mandatory
 displayName="Oblivious Tweaks" #mandatory
-displayURL="https://obliviousreality.github.io/oblivioustweaks.html" #optional
-logoFile="examplemod.png" #optional
-credits="Thanks for this example mod goes to Java" #optional
+displayURL="https://obliviousreality.github.io/oblivioustweaks" #optional
+logoFile="logo.png" #optional
 authors="Programming by TsarOblivious, Textures by British_Nerd" #optional
 description='''
 A Slightly Oblivious set of Tweaks for Minecraft.
