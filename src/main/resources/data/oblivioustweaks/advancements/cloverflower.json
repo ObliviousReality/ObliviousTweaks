@@ -1,0 +1,31 @@
+{
+    "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+    "display": {
+        "title": {
+            "text": "Four Leaf Clover"
+        },
+        "description": {
+            "text": "Craft four clover leaves together with a Gilded Iron Ingot to form a clover flower!"
+        },
+        "icon": {
+            "item": "oblivioustweaks:clover_flower"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "item added": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "oblivioustweaks:clover_flower"
+                    }
+                ]
+            }
+        }
+    },
+    "parent": "oblivioustweaks:cloverseeds"
+}

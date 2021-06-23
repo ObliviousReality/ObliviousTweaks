@@ -1,0 +1,30 @@
+{
+	"__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+	"display": {
+		"title": {
+			"text": "Sanguinare Vampiris"
+		},
+		"description": {
+			"text": "Contract Vampirism"
+		},
+		"icon": {
+			"item": "oblivioustweaks:vampire_tooth"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria": {
+		"example": {
+			"trigger": "minecraft:effects_changed",
+			"conditions": {
+				"effects": {
+					"oblivioustweaks:vampirism": {
+					}
+				}
+			}
+		}
+	},
+	"parent": "oblivioustweaks:vampire"
+}

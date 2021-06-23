@@ -1,0 +1,40 @@
+{
+    "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+    "display": {
+        "title": {
+            "text": "Shiny Armour"
+        },
+        "description": {
+            "text": "Craft a full set of Gilded Armour"
+        },
+        "icon": {
+            "item": "oblivioustweaks:gilded_helmet"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "item added": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "oblivioustweaks:gilded_helmet"
+                    },
+                    {
+                        "item": "oblivioustweaks:gilded_chestplate"
+                    },
+                    {
+                        "item": "oblivioustweaks:gilded_leggings"
+                    },
+                    {
+                        "item": "oblivioustweaks:gilded_boots"
+                    }
+                ]
+            }
+        }
+    },
+    "parent": "oblivioustweaks:gildediron"
+}

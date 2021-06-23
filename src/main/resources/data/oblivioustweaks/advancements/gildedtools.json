@@ -1,0 +1,43 @@
+{
+    "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+    "display": {
+        "title": {
+            "text": "Shiny Tools"
+        },
+        "description": {
+            "text": "Craft a full set of Gilded Tools."
+        },
+        "icon": {
+            "item": "oblivioustweaks:gilded_pickaxe"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "item added": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "oblivioustweaks:gilded_pickaxe"
+                    },
+                    {
+                        "item": "oblivioustweaks:gilded_axe"
+                    },
+                    {
+                        "item": "oblivioustweaks:gilded_shovel"
+                    },
+                    {
+                        "item": "oblivioustweaks:gilded_sword"
+                    },
+                    {
+                        "item": "oblivioustweaks:gilded_hoe"
+                    }
+                ]
+            }
+        }
+    },
+    "parent": "oblivioustweaks:gildediron"
+}

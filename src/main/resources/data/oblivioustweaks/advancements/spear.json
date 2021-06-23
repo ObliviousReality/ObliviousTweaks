@@ -1,0 +1,31 @@
+{
+    "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+    "display": {
+        "title": {
+            "text": "Another Throwaway Joke?"
+        },
+        "description": {
+            "text": "Throw a Spear at an enemy"
+        },
+        "icon": {
+            "item": "oblivioustweaks:spear"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "item added": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "oblivioustweaks:spear"
+                    }
+                ]
+            }
+        }
+    },
+    "parent": "oblivioustweaks:gildediron"
+}

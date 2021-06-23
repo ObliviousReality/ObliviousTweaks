@@ -1,0 +1,31 @@
+{
+    "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+    "display": {
+        "title": {
+            "text": "Boston Tea Party"
+        },
+        "description": {
+            "text": "Craft a crate of tea so there's plenty to go around at your tea party!"
+        },
+        "icon": {
+            "item": "oblivioustweaks:tea_crate"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "item added": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "oblivioustweaks:tea_crate"
+                    }
+                ]
+            }
+        }
+    },
+    "parent": "oblivioustweaks:tealeaf"
+}

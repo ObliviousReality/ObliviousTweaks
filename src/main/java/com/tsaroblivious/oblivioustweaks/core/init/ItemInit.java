@@ -23,6 +23,7 @@ import net.minecraft.item.AxeItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.HoeItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ShovelItem;
 import net.minecraft.item.SwordItem;
@@ -39,15 +40,15 @@ public class ItemInit {
 
 	public static final RegistryObject<CustomSpawnEggItem> VAMPIRE_SPAWN_EGG = ITEMS.register("vampire_spawn_egg",
 			() -> new CustomSpawnEggItem(EntityInit.VAMPIRE, 0x000000, 0xFFFFFF,
-					new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
+					new Item.Properties().tab(ItemGroup.TAB_MISC)));
 
 	public static final RegistryObject<CustomSpawnEggItem> VAMPIRE_HUNTER_SPAWN_EGG = ITEMS
 			.register("vampire_hunter_spawn_egg", () -> new CustomSpawnEggItem(EntityInit.VAMPIRE_HUNTER, 0xFFFFFF,
-					0x000000, new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
+					0x000000, new Item.Properties().tab(ItemGroup.TAB_MISC)));
 
 	public static final RegistryObject<CustomSpawnEggItem> PIRATE_SPAWN_EGG = ITEMS.register("pirate_spawn_egg",
 			() -> new CustomSpawnEggItem(EntityInit.PIRATE, 0xFFFF00, 0xFF6666,
-					new Item.Properties().tab(ObliviousTweaksItemGroup.OBLIVIOUS_TWEAKS)));
+					new Item.Properties().tab(ItemGroup.TAB_MISC)));
 
 	public static final RegistryObject<Item> SPEAR = ITEMS.register("spear", () -> new Spear());
 

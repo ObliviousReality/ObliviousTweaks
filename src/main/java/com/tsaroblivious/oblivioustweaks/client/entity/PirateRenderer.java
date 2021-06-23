@@ -23,5 +23,6 @@ public class PirateRenderer extends MobRenderer<Pirate, PirateModel<Pirate>> {
 	public ResourceLocation getTextureLocation(Pirate p_110775_1_) {
 		return TEXTURE;
 	}
+	
 
 }

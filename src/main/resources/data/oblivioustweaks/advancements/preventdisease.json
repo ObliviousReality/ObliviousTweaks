@@ -1,0 +1,30 @@
+{
+	"__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+	"display": {
+		"title": {
+			"text": "Vaccinated, For Now"
+		},
+		"description": {
+			"text": "Create a potion of Prevent Disease to resist incoming effects"
+		},
+		"icon": {
+			"item": "oblivioustweaks:fungus_bowl"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria": {
+		"example": {
+			"trigger": "minecraft:effects_changed",
+			"conditions": {
+				"effects": {
+					"oblivioustweaks:preventdisease": {
+					}
+				}
+			}
+		}
+	},
+	"parent": "oblivioustweaks:vampire"
+}

@@ -1,0 +1,31 @@
+{
+    "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+    "display": {
+        "title": {
+            "text": "British Nerd"
+        },
+        "description": {
+            "text": "Enhance the pistol into a Musket, perfect from holding back the French or defending the colonies!"
+        },
+        "icon": {
+            "item": "oblivioustweaks:musket"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "item added": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "oblivioustweaks:musket"
+                    }
+                ]
+            }
+        }
+    },
+    "parent": "oblivioustweaks:pistol"
+}

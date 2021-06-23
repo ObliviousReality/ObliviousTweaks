@@ -1,0 +1,31 @@
+{
+    "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+    "display": {
+        "title": {
+            "text": "A Fine Cup of Tea"
+        },
+        "description": {
+            "text": "Brew the perfect cup of tea by adding milk and sugar!"
+        },
+        "icon": {
+            "item": "oblivioustweaks:cup_of_tea"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "item added": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "oblivioustweaks:cup_of_tea"
+                    }
+                ]
+            }
+        }
+    },
+    "parent": "oblivioustweaks:blacktea"
+}

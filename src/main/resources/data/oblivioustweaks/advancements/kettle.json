@@ -1,0 +1,31 @@
+{
+    "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+    "display": {
+        "title": {
+            "text": "Shall I put the Kettle on?"
+        },
+        "description": {
+            "text": "Craft a Kettle to boil water into hot water!"
+        },
+        "icon": {
+            "item": "oblivioustweaks:kettle"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "item added": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "oblivioustweaks:kettle"
+                    }
+                ]
+            }
+        }
+    },
+    "parent": "oblivioustweaks:teaseeds"
+}
