@@ -4,10 +4,12 @@ import java.util.Arrays;
 import java.util.Map;
 
 import com.tsaroblivious.oblivioustweaks.ObliviousTweaks;
+import com.tsaroblivious.oblivioustweaks.common.entity.Vampire;
 import com.tsaroblivious.oblivioustweaks.core.blocks.Shelf;
 import com.tsaroblivious.oblivioustweaks.core.init.BlockInit;
 import com.tsaroblivious.oblivioustweaks.core.init.EffectsInit;
 import com.tsaroblivious.oblivioustweaks.core.init.ItemInit;
+import com.tsaroblivious.oblivioustweaks.core.init.SoundInit;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -20,6 +22,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.BoatEntity;
 import net.minecraft.entity.item.ExperienceOrbEntity;
 import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.entity.monster.WitherSkeletonEntity;
 import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -30,6 +33,7 @@ import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Direction;
+import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
@@ -71,8 +75,6 @@ public class PlayerEvents {
 						if (dist < 7) {
 							float damage = (float) ((float) 2f + (8 - ((dist / 7) * 8)));
 							livingEntity.hurt(DamageSource.playerAttack(player), damage);
-							world.playSound((PlayerEntity) null, event.getPos(), SoundEvents.ANVIL_PLACE,
-									SoundCategory.NEUTRAL, 1.0F, 1.0F);
 							player.getCooldowns().addCooldown(dagger, 40);
 							if (!player.abilities.instabuild) {
 								Map<Enchantment, Integer> enchants = EnchantmentHelper.getEnchantments(heldItem);
@@ -141,12 +143,24 @@ public class PlayerEvents {
 	@SubscribeEvent
 	public static void vampirism(AttackEntityEvent event) {
 		PlayerEntity player = event.getPlayer();
+		Entity entity = event.getTarget();
 		if (!player.level.isClientSide) {
 			if (player.hasEffect(EffectsInit.vampirism_effect)) {
-				Entity entity = event.getTarget();
 				if (entity instanceof LivingEntity) {
 					LivingEntity livingEntity = (LivingEntity) entity;
 					livingEntity.addEffect(new EffectInstance(Effects.WITHER, 200, 2));
+				}
+			}
+
+		} else {
+			if (player.getItemInHand(Hand.MAIN_HAND).sameItem(new ItemStack(ItemInit.SILVER_SWORD.get()))) {
+				if (entity instanceof LivingEntity) {
+					LivingEntity livingEntity = (LivingEntity) entity;
+					if (livingEntity instanceof WitherSkeletonEntity || livingEntity instanceof Vampire
+							|| livingEntity.hasEffect(EffectsInit.vampirism_effect)) {
+					} else {
+						player.playSound(SoundInit.SILVER_HIT.get(), 1, 1);
+					}
 				}
 			}
 		}

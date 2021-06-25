@@ -1,0 +1,62 @@
+{
+	"vampire_roar": {
+		"category": "hostile",
+		"subtitle": "oblivioustweaks:sound.vampire_roar",
+		"sounds": [
+			{
+				"name": "oblivioustweaks:vampire_roar",
+				"stream": true
+			}
+		]
+	},
+	"vampire_hurt": {
+		"category": "hostile",
+		"subtitle": "oblivioustweaks:sound.vampire_hurt",
+		"sounds": [
+			{
+				"name": "oblivioustweaks:vampire_hurt",
+				"stream": true
+			}
+		]
+	},
+	"knife_attack": {
+		"category": "item",
+		"subtitle": "oblivioustweaks:sound.knife_attack",
+		"sounds": [
+			{
+				"name": "oblivioustweaks:knife_attack",
+				"stream": true
+			}
+		]
+	},
+	"pistol": {
+		"category": "item",
+		"subtitle": "oblivioustweaks:sound.pistol",
+		"sounds": [
+			{
+				"name": "oblivioustweaks:pistol",
+				"stream": true
+			}
+		]
+	},
+	"musket": {
+		"category": "item",
+		"subtitle": "oblivioustweaks:sound.musket",
+		"sounds": [
+			{
+				"name": "oblivioustweaks:musket",
+				"stream": true
+			}
+		]
+	},
+	"silver_hit": {
+		"category": "item",
+		"subtitle": "oblivioustweaks:sound.silver_hit",
+		"sounds": [
+			{
+				"name": "oblivioustweaks:silver_hit",
+				"stream": true
+			}
+		]
+	}
+}

@@ -1,6 +1,7 @@
 package com.tsaroblivious.oblivioustweaks.common.entity;
 
 import com.tsaroblivious.oblivioustweaks.core.init.EffectsInit;
+import com.tsaroblivious.oblivioustweaks.core.init.SoundInit;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -78,17 +79,17 @@ public class Vampire extends MonsterEntity {
 
 	@Override
 	protected SoundEvent getAmbientSound() {
-		return SoundEvents.WITCH_CELEBRATE;
+		return SoundInit.VAMPIRE_ROAR.get();
 	}
 
 	@Override
 	protected SoundEvent getDeathSound() {
-		return Math.random() > 0.5 ? SoundEvents.WITCH_DEATH : SoundEvents.WITCH_DEATH;
+		return SoundEvents.PILLAGER_DEATH;
 	}
 
 	@Override
 	protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
-		return SoundEvents.WITCH_HURT;
+		return SoundInit.VAMPIRE_HURT.get();
 	}
 
 	public void addGoal() {

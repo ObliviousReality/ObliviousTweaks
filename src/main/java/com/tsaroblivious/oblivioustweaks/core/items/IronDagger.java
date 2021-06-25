@@ -1,6 +1,7 @@
 package com.tsaroblivious.oblivioustweaks.core.items;
 
 import com.tsaroblivious.oblivioustweaks.common.material.CustomToolMaterial;
+import com.tsaroblivious.oblivioustweaks.core.init.SoundInit;
 import com.tsaroblivious.oblivioustweaks.core.itemgroup.ObliviousTweaksItemGroup;
 
 import net.minecraft.entity.player.PlayerEntity;
@@ -21,6 +22,7 @@ public class IronDagger extends SwordItem {
 	@Override
 	public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
 		player.swing(hand);
+		player.playSound(SoundInit.KNIFE_ATTACK.get(), 2.0F, 1.0F);
 		return ActionResult.pass(player.getItemInHand(hand));
 	}
 

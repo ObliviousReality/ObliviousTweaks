@@ -68,5 +68,14 @@
 	"item.minecraft.tipped_arrow.effect.curedisease": "Arrow of Cure Disease",
 	
 	"entity.oblivioustweaks.vampire": "Vampire",
-	"entity.oblivioustweaks.vampire_hunter": "Zombie Vampire Hunter"
+	"entity.oblivioustweaks.vampire_hunter": "Zombie Vampire Hunter",
+	"entity.oblivioustweaks.pirate": "Pirate",
+	
+	"oblivioustweaks.sound.subtitle.vampire_roar": "Vampire roars",
+	"oblivioustweaks.sound.subtitle.vampire_hurt": "Vampire hurt",
+	"oblivioustweaks.sound.subtitle.knife_attack": "Knife swishes",
+	"oblivioustweaks.sound.subtitle.pistol": "Pistol fires",
+	"oblivioustweaks.sound.subtitle.musket": "Musket fires",
+	"oblivioustweaks.sound.subtitle.silver_hit": "Silver Sword clangs"
+	
 }

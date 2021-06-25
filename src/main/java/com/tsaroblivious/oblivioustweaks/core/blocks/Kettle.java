@@ -1,5 +1,6 @@
 package com.tsaroblivious.oblivioustweaks.core.blocks;
 
+import java.util.Random;
 import java.util.stream.Stream;
 
 import com.tsaroblivious.oblivioustweaks.core.init.ItemInit;
@@ -17,6 +18,7 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.potion.Potions;
 import net.minecraft.state.BooleanProperty;
@@ -25,6 +27,7 @@ import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer.Builder;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
@@ -280,6 +283,38 @@ public class Kettle extends Block {
 	@Override
 	public TileEntity createTileEntity(BlockState state, IBlockReader world) {
 		return TileEntityInit.KETTLE_TILE_ENTITY.get().create();
+	}
+
+	@Override
+	public void animateTick(BlockState state, World world, BlockPos pos, Random random) {
+		if (state.getValue(HOT)) {
+			double x = pos.getX();
+			double y = pos.getY();
+			double z = pos.getZ();
+			Direction d = state.getValue(FACING);
+			switch (d) {
+			case EAST:
+				x += 0.9;
+				z += 0.5;
+				break;
+			case NORTH:
+				z += 0.1;
+				x += 0.5;
+				break;
+			case SOUTH:
+				x += 0.5;
+				z += 0.9;
+				break;
+			case WEST:
+				x += 0.1;
+				z += 0.5;
+				break;
+			default:
+				break;
+
+			}
+			world.addAlwaysVisibleParticle(ParticleTypes.SMOKE, x, y + 0.6, z, 0, 0.01, 0);
+		}
 	}
 
 }

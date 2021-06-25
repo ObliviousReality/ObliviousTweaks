@@ -65,8 +65,7 @@ public class KettleTileEntity extends TileEntity implements ITickableTileEntity 
 							this.level.getBlockState(this.worldPosition).setValue(Kettle.HOT, true), 3);
 				}
 			} else if (!cooked && block.getValue(Kettle.HOT)) {
-				this.level.playSound((PlayerEntity) null,
-						this.worldPosition, SoundEvents.ANVIL_LAND,
+				this.level.playSound((PlayerEntity) null, this.worldPosition, SoundEvents.LAVA_EXTINGUISH,
 						SoundCategory.BLOCKS, 1f, 1f);
 				cooked = true;
 			}

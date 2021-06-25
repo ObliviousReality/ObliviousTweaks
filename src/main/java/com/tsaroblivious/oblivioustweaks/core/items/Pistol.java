@@ -8,6 +8,7 @@ import javax.annotation.Nullable;
 
 import com.google.common.collect.Lists;
 import com.tsaroblivious.oblivioustweaks.core.init.ItemInit;
+import com.tsaroblivious.oblivioustweaks.core.init.SoundInit;
 import com.tsaroblivious.oblivioustweaks.core.itemgroup.ObliviousTweaksItemGroup;
 
 import net.minecraft.advancements.CriteriaTriggers;
@@ -184,7 +185,7 @@ public class Pistol extends CrossbowItem {
 			});
 			p_220016_0_.addFreshEntity(projectileentity);
 			p_220016_0_.playSound((PlayerEntity) null, p_220016_1_.getX(), p_220016_1_.getY(), p_220016_1_.getZ(),
-					SoundEvents.ANVIL_LAND, SoundCategory.PLAYERS, 1.0F, p_220016_5_);
+					SoundInit.PISTOL.get(), SoundCategory.PLAYERS, 1.0F, p_220016_5_);
 		}
 	}
 

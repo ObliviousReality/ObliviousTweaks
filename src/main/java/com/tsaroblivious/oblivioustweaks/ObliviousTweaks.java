@@ -11,6 +11,7 @@ import com.tsaroblivious.oblivioustweaks.core.init.EffectsInit;
 import com.tsaroblivious.oblivioustweaks.core.init.EntityInit;
 import com.tsaroblivious.oblivioustweaks.core.init.ItemInit;
 import com.tsaroblivious.oblivioustweaks.core.init.LootInit;
+import com.tsaroblivious.oblivioustweaks.core.init.SoundInit;
 import com.tsaroblivious.oblivioustweaks.core.init.TileEntityInit;
 import com.tsaroblivious.oblivioustweaks.core.itemgroup.ObliviousTweaksItemGroup;
 import com.tsaroblivious.oblivioustweaks.core.world.gen.ModSpawns;
@@ -50,6 +51,7 @@ public class ObliviousTweaks {
 		ItemInit.ITEMS.register(bus);
 		TileEntityInit.TILE_ENTITY_TYPE.register(bus);
 		LootInit.LOOT.register(bus);
+		SoundInit.SOUNDS.register(bus);
 		MinecraftForge.EVENT_BUS.register(this);
 		final ClientSideOnlyModEventRegistrar csomer = new ClientSideOnlyModEventRegistrar(bus);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);

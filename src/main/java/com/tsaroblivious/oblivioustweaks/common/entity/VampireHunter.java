@@ -114,15 +114,15 @@ public class VampireHunter extends MonsterEntity implements ICrossbowUser {
 	}
 
 	protected SoundEvent getAmbientSound() {
-		return SoundEvents.PILLAGER_AMBIENT;
+		return SoundEvents.ZOMBIE_VILLAGER_AMBIENT;
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.PILLAGER_DEATH;
+		return SoundEvents.ZOMBIE_VILLAGER_DEATH;
 	}
 
 	protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
-		return SoundEvents.PILLAGER_HURT;
+		return SoundEvents.ZOMBIE_VILLAGER_HURT;
 	}
 
 	public void addGoal() {
