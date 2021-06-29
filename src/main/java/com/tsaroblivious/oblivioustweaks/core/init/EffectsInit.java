@@ -1,16 +1,14 @@
 package com.tsaroblivious.oblivioustweaks.core.init;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectType;
 import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionBrewing;
+import net.minecraft.potion.PotionUtils;
 import net.minecraft.potion.Potions;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 
 public class EffectsInit {
 
@@ -23,26 +21,19 @@ public class EffectsInit {
 	public static Potion cure_disease_potion = null;
 	public static Effect cure_disease_effect = null;
 
-	private static Method brewingMixes;
-
-	private static void addMix(Potion start, Item ingredient, Potion result) {
-		if (brewingMixes == null) {
-			brewingMixes = ObfuscationReflectionHelper.findMethod(PotionBrewing.class, "addMix", Potion.class,
-					Item.class, Potion.class);
-			brewingMixes.setAccessible(true);
-		}
-
-		try {
-			brewingMixes.invoke(null, start, ingredient, result);
-		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-			e.printStackTrace();
-		}
-	}
-
 	public static void addBrewingRecipes() {
-		addMix(Potions.AWKWARD, ItemInit.FUNGUS_BOWL.get(), EffectsInit.prevent_disease_potion);
-		addMix(Potions.AWKWARD, ItemInit.VAMPIRE_TOOTH.get(), EffectsInit.vampirism_potion);
-		addMix(Potions.AWKWARD, Items.POISONOUS_POTATO, EffectsInit.cure_disease_potion);
+		BrewingRecipeRegistry.addRecipe(
+				Ingredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.AWKWARD)),
+				Ingredient.of(new ItemStack(ItemInit.FUNGUS_BOWL.get())),
+				PotionUtils.setPotion(new ItemStack(Items.POTION), EffectsInit.prevent_disease_potion));
+		BrewingRecipeRegistry.addRecipe(
+				Ingredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.AWKWARD)),
+				Ingredient.of(new ItemStack(ItemInit.VAMPIRE_TOOTH.get())),
+				PotionUtils.setPotion(new ItemStack(Items.POTION), EffectsInit.vampirism_potion));
+		BrewingRecipeRegistry.addRecipe(
+				Ingredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.AWKWARD)),
+				Ingredient.of(new ItemStack(Items.POISONOUS_POTATO)),
+				PotionUtils.setPotion(new ItemStack(Items.POTION), EffectsInit.cure_disease_potion));
 	}
 
 	public static class PreventDiseaseEffect extends Effect {

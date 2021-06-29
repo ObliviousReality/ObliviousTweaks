@@ -60,7 +60,7 @@ public class ObliviousTweaks {
 	}
 
 	private void setup(final FMLCommonSetupEvent event) {
-		EffectsInit.addBrewingRecipes();
+		event.enqueueWork(() -> EffectsInit.addBrewingRecipes());
 	}
 
 	@SubscribeEvent
