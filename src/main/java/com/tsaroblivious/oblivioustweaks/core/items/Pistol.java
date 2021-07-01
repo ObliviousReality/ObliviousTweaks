@@ -28,6 +28,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.ListNBT;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -67,6 +68,18 @@ public class Pistol extends CrossbowItem {
 		ItemStack itemstack = p_77659_2_.getItemInHand(p_77659_3_);
 		if (isCharged(itemstack)) {
 			performShooting(p_77659_1_, p_77659_2_, p_77659_3_, itemstack, getShootingPower(itemstack), 1.0F);
+			double x = p_77659_2_.position().x;
+			double y = p_77659_2_.position().y;
+			double z = p_77659_2_.position().z;
+			double a = p_77659_2_.getYHeadRot();
+//			ObliviousTweaks.LOGGER.debug(a + " Degrees");
+			a = Math.toRadians(a);
+//			ObliviousTweaks.LOGGER.debug(a + " Radians");
+//			ObliviousTweaks.LOGGER.debug(Math.cos(a));
+//			ObliviousTweaks.LOGGER.debug(Math.sin(a));
+//			ObliviousTweaks.LOGGER.debug(" ");
+			p_77659_1_.addAlwaysVisibleParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, x - (Math.sin(a) * 0.5), y + 1.25,
+					z + (Math.cos(a) * 0.5), 0, 0.01, 0);
 			setCharged(itemstack, false);
 			return ActionResult.consume(itemstack);
 		} else if (!p_77659_2_.getProjectile(itemstack).isEmpty()) {

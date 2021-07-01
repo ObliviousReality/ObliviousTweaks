@@ -29,7 +29,7 @@ public class ModSpawns {
 		}
 		if (biome.getBiomeCategory() == Biome.Category.BEACH) {
 			event.getSpawns().getSpawner(EntityClassification.MONSTER)
-					.add(new MobSpawnInfo.Spawners(EntityInit.PIRATE.get(), 4, 2, 4));
+					.add(new MobSpawnInfo.Spawners(EntityInit.PIRATE.get(), 2, 2, 4));
 		}
 	}
 

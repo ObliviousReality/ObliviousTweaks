@@ -46,6 +46,7 @@ public class ObliviousTweaks {
 
 	public ObliviousTweaks() {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+//		ParticleInit.PARTICLES.register(bus);
 		EntityInit.ENTITY_TYPES.register(bus);
 		BlockInit.BLOCKS.register(bus);
 		ItemInit.ITEMS.register(bus);

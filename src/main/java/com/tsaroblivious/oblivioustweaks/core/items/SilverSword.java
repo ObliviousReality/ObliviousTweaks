@@ -33,7 +33,7 @@ public class SilverSword extends SwordItem {
 		});
 		if (entityA instanceof WitherSkeletonEntity || entityA instanceof Vampire
 				|| entityA.hasEffect(EffectsInit.vampirism_effect)) {
-			entityA.hurt(DamageSource.mobAttack(entityB), 8);
+			entityA.hurt(DamageSource.mobAttack(entityB), 12);
 		} else {
 			Map<Enchantment, Integer> enchants = EnchantmentHelper.getEnchantments(item);
 			if (enchants.get(Enchantments.UNBREAKING) != null) {
